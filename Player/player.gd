@@ -22,7 +22,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		%Camera3D.rotation_degrees.x = clamp(%Camera3D.rotation_degrees.x, -80, 80)
 
 func _physics_process(delta: float) -> void:
-	#%FPSDisplay.text = str(floor(1/delta))
+	%FPSDisplay.text = str(floor(1/delta))
 	var inputVector2D = Input.get_vector("left", "right", "forward", "backward")
 	inputVector2D = inputVector2D.normalized()
 	var inputVector3D = Vector3(
@@ -30,8 +30,8 @@ func _physics_process(delta: float) -> void:
 	)
 	inputVector3D = transform.basis * inputVector3D
 	
-	velocity.y -= 9.8 #Gravity n' shit
-	
+	velocity.y -= 9.8 * delta * 2 #Gravity n' shit(regular gravity was too floaty)
+	velocity.y += int(is_on_floor()) * int(Input.is_action_just_pressed("jump")) * 6.7 # adds jumping n' shit
 	
 	if Input.is_action_just_pressed("run") and stamina >= 0:
 		running = true
@@ -52,6 +52,7 @@ func _physics_process(delta: float) -> void:
 	
 	else:
 		targetVelocity = Vector2()
+	
 	planarVelocity = lerp(planarVelocity, targetVelocity, delta * larp)
 	velocity = Vector3(planarVelocity.x, velocity.y, planarVelocity.y)
 	
