@@ -1,14 +1,16 @@
 extends CharacterBody3D
 
-var sens = 0.5	#mouse sensitivity
+var sens = 0.3	#mouse sensitivity
 const maxSpeed = 10	#max speed when walking
-const maxRunSpeed = 50	#max speed when running
-const walkAcceleration = 20
-const runAcceleration = 40
+const maxRunSpeed = 20	#speed add when running
+const walkAcceleration = 10
+const runAcceleration = 5
 var acceleration = 20	#adds acceleration * dt when accelerating
-const deceleration = 3	#velocity is divided by 1 + deceleration when decelerating
+const deceleration = 5	#velocity is divided by 1 + deceleration when decelerating
 var deltaDeceleeration = 0	#Deceleeration acounting for dt
 var targetSpeed = 0 	#Target length of velocity
+var stamina = 100 #I don't think this needs explaination
+var running = 0 # 1 or 0 for is running, not bool because I can avoid an if statement if by making it a number
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -25,15 +27,16 @@ func _physics_process(delta: float) -> void:
 	var inputVector3D = Vector3(
 		inputVector2D.x, 0, inputVector2D.y
 	)
-	inputVector3D = transform.basis * inputVector3D	#converts global vector to local for movement
-	if inputVector2D == Vector2(0,0):	#sets target speed
-		targetSpeed = 0
-	elif  Input.is_action_pressed("run"):
-		targetSpeed = maxRunSpeed
-		acceleration = runAcceleration
-	else:
-		targetSpeed = maxSpeed
-		acceleration = walkAcceleration
+	inputVector3D = transform.basis * inputVector3D
+	
+	
+	
+	if Input.is_action_just_pressed("run"):
+		running == 1
+	if Input.is_action_just_released("run") or stamina:
+		running == 0
+	
+	targetSpeed = float(inputVector2D.length()) * walkAcceleration + runAcceleration * running
 	
 	velocity += inputVector3D * acceleration * delta
 	
