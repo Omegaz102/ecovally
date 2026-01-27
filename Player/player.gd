@@ -2,12 +2,12 @@ extends CharacterBody3D
 
 var sens = 0.3	#mouse sensitivity
 const minSpeed = 5 #minimum speed while walking/running
-const maxSpeed = 30
-const maxRunSpeed = 50
+const maxSpeed = 6.7 #67
+const maxRunSpeed = 4.1 #41
 const walkAcceleration = 20
 const runAcceleration = 25
-const deceleration = 15	#velocity is divided by 1 + deceleration when decelerating
-var acceleration = 0 	#how much to accelerate
+const deceleration = 30	#velocity is divided by 1 + deceleration when decelerating
+var acceleration = 30 	#how much to accelerate
 var stamina = 100 #I don't think this needs explaination
 var running = 0 # 1 or 0 for is running, not bool because I can avoid an if statement if by making it a number
 
@@ -21,7 +21,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		%Camera3D.rotation_degrees.x = clamp(%Camera3D.rotation_degrees.x, -80, 80)
 
 func _physics_process(delta: float) -> void:
-	%FPSDisplay.text = str(floor(1/delta))
+	#%FPSDisplay.text = str(floor(1/delta))
 	var inputVector2D = Input.get_vector("left", "right", "forward", "backward")
 	inputVector2D = inputVector2D.normalized()
 	var inputVector3D = Vector3(
@@ -54,14 +54,15 @@ func _physics_process(delta: float) -> void:
 #	velocity += inputVector3D * acceleration * delta
 	
 	var planarVelocity = Vector2(velocity.x, velocity.z) #seperates planar movment so planar movment doesn't affect jumping/falling
+	%FPSDisplay.text = str(planarVelocity.length()) # using fps meeter for live testing
 	if inputVector2D.length() > 0: #new system for handling movement
-		if planarVelocity.length() < minSpeed:
+		if planarVelocity.length() <= minSpeed:
 			planarVelocity = Vector2(inputVector3D.x, inputVector3D.z) * minSpeed
 		else:
-			pass
+			planarVelocity = (planarVelocity.length() + acceleration*delta) * Vector2(inputVector3D.x, inputVector3D.z)
 	else:
 		planarVelocity = planarVelocity.normalized() * (planarVelocity.length() - deceleration * delta)
-		
+	
 	
 	velocity = Vector3(planarVelocity.x, velocity.y, planarVelocity.y)
 	
