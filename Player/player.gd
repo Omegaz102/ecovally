@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
 var sens = 0.3	#mouse sensitivity
-const maxSpeed = 15
-const maxRunSpeed = 10
-const walkAcceleration = 50
-const runAcceleration = 15
+const maxSpeed = 30
+const maxRunSpeed = 50
+const walkAcceleration = 20
+const runAcceleration = 25
 const deceleration = 7	#velocity is divided by 1 + deceleration when decelerating
 var deltaDeceleeration = 0	#Deceleeration acounting for dt
 var acceleration = 0 	#how much to accelerate
@@ -34,19 +34,29 @@ func _physics_process(delta: float) -> void:
 		running = 1
 	if Input.is_action_just_released("run") or stamina <= 0:
 		running = 0 
+	if Input.is_action_just_pressed("run") and stamina > 0:
+		running = 1
 	print(running)
-	stamina -= running * delta
-	%StaminaMeater.frame = remap(stamina, 100, 0, 0, 60)
-	stamina -= running * 10 * delta
-	stamina += (1 - running) * 2 * delta 
-	acceleration = float(inputVector2D.length()) * walkAcceleration + runAcceleration * running * float(inputVector2D.length())
 	
-	if velocity.length() > inputVector2D.length() * (maxSpeed + running * maxRunSpeed):	#deccelerates when velocity length > target speed
-		deltaDeceleeration = deceleration * delta
-		deltaDeceleeration = deltaDeceleeration + 1
-		velocity = velocity.length() * deltaDeceleeration * velocity.normalized()
-		if velocity.length() < inputVector2D.length() * (maxSpeed + running * maxRunSpeed):
-			velocity = acceleration * velocity.normalized()
+	if running:
+		stamina -= 10 * delta
+	else:
+		stamina += 2 * delta
+
+	stamina = clamp(stamina, 0, 100)
+
+	%StaminaMeater.frame = remap(stamina, 100, 0, 0, 60)
+	
+
+	stamina += (1 - running) * 2 * delta 
+	
+	if running: #make adams code more comprehensible
+		acceleration = float(inputVector2D.length()) * runAcceleration
+	else:
+		acceleration = float(inputVector2D.length()) * walkAcceleration
+	
+	if velocity.length() > inputVector2D.length() * (maxSpeed + running * maxRunSpeed): # nice lerp velovity thing
+		velocity = velocity.lerp(Vector3.ZERO, deceleration * delta)
 	
 	velocity += inputVector3D * acceleration * delta
 	
