@@ -258,6 +258,9 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_e03cv"]
 font_color = Color(0.42000002, 0.7293333, 1, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_xehjw"]
+font_size = 24
+
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1504471152]
 script = ExtResource("1_xhfnw")
 
@@ -318,3 +321,8 @@ offset_bottom = 7.5
 text = "balls"
 label_settings = SubResource("LabelSettings_e03cv")
 horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="." unique_id=2122822879]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_xehjw")
