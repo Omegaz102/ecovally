@@ -1,14 +1,13 @@
 extends CharacterBody3D
 
 var sens = 0.3	#mouse sensitivity
-const maxSpeed = 10	#max speed when walking
-const maxRunSpeed = 20	#speed add when running
-const walkAcceleration = 10
-const runAcceleration = 5
-var acceleration = 20	#adds acceleration * dt when accelerating
-const deceleration = 5	#velocity is divided by 1 + deceleration when decelerating
+const maxSpeed = 15
+const maxRunSpeed = 10
+const walkAcceleration = 50
+const runAcceleration = 15
+const deceleration = 7	#velocity is divided by 1 + deceleration when decelerating
 var deltaDeceleeration = 0	#Deceleeration acounting for dt
-var targetSpeed = 0 	#Target length of velocity
+var acceleration = 0 	#how much to accelerate
 var stamina = 100 #I don't think this needs explaination
 var running = 0 # 1 or 0 for is running, not bool because I can avoid an if statement if by making it a number
 
@@ -32,20 +31,23 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Input.is_action_just_pressed("run"):
-		running == 1
-	if Input.is_action_just_released("run") or stamina:
-		running == 0
+		running = 1
+	if Input.is_action_just_released("run") or stamina <= 0:
+		running = 0 
+	print(running)
+	stamina -= running * delta
+	%StaminaMeater.frame = remap(stamina, 100, 0, 0, 60)
+	stamina -= running * 10 * delta
+	stamina += (1 - running) * 2 * delta 
+	acceleration = float(inputVector2D.length()) * walkAcceleration + runAcceleration * running * float(inputVector2D.length())
 	
-	targetSpeed = float(inputVector2D.length()) * walkAcceleration + runAcceleration * running
+	if velocity.length() > inputVector2D.length() * (maxSpeed + running * maxRunSpeed):	#deccelerates when velocity length > target speed
+		deltaDeceleeration = deceleration * delta
+		deltaDeceleeration = deltaDeceleeration + 1
+		velocity = velocity.length() * deltaDeceleeration * velocity.normalized()
+		if velocity.length() < inputVector2D.length() * (maxSpeed + running * maxRunSpeed):
+			velocity = acceleration * velocity.normalized()
 	
 	velocity += inputVector3D * acceleration * delta
 	
-	if velocity.length() > targetSpeed:	#deccelerates when velocity length > target speed
-		deltaDeceleeration = deceleration * delta
-		deltaDeceleeration = deltaDeceleeration + 1
-		velocity = velocity.length() / deltaDeceleeration * velocity.normalized()
-		if velocity.length() < targetSpeed:
-			velocity = targetSpeed * velocity.normalized()
-	
-	print(1 / delta)
 	move_and_slide()
