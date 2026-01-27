@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cg3rp2w8r4feb"]
+[gd_scene format=3 uid="uid://cg3rp2w8r4feb"]
 
 [ext_resource type="Script" uid="uid://cyllv0at5cmle" path="res://Player/player.gd" id="1_xhfnw"]
 [ext_resource type="Texture2D" uid="uid://bkbj6va5201ve" path="res://Player/UI/Stamina/0001.png" id="2_sqgfh"]
@@ -254,25 +254,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1504471152]
 script = ExtResource("1_xhfnw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1043593158]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_kpjcp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2039490622]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_kne1u")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Node3D" type="Node3D" parent="." unique_id=839030807]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
+[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=620802720]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1054401221]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -281,7 +281,7 @@ offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="StaminaMeater" type="AnimatedSprite2D" parent="Control"]
+[node name="StaminaMeater" type="AnimatedSprite2D" parent="Control" unique_id=2120771723]
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(0, 40)
