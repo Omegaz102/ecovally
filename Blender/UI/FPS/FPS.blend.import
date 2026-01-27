@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://k8vlnwj5h2p1"
-path="res://.godot/imported/stamina.blend-edd674b165fdc03e87404e0b3e2dd41d.scn"
+uid="uid://dwf8glirmu6ya"
+path="res://.godot/imported/FPS.blend-43f5e06a453345b416b7f8da56d4a4df.scn"
 
 [deps]
 
-source_file="res://Blender/UI/stamina/stamina.blend"
-dest_files=["res://.godot/imported/stamina.blend-edd674b165fdc03e87404e0b3e2dd41d.scn"]
+source_file="res://Blender/UI/FPS/FPS.blend"
+dest_files=["res://.godot/imported/FPS.blend-43f5e06a453345b416b7f8da56d4a4df.scn"]
 
 [params]
 

@@ -61,6 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://uldejlmsyh74" path="res://Player/UI/Stamina/0058.png" id="59_soywi"]
 [ext_resource type="Texture2D" uid="uid://b3xajomga8173" path="res://Player/UI/Stamina/0059.png" id="60_4j7ar"]
 [ext_resource type="Texture2D" uid="uid://be2w35iwajvdu" path="res://Player/UI/Stamina/0060.png" id="61_xe2ce"]
+[ext_resource type="Texture2D" uid="uid://csaix7smrim1d" path="res://Blender/UI/FPS/FPS.png" id="62_e03cv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kpjcp"]
 
@@ -254,6 +255,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_e03cv"]
+font_color = Color(0.42000002, 0.7293333, 1, 1)
+
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1504471152]
 script = ExtResource("1_xhfnw")
 
@@ -289,3 +293,27 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_wn0tj")
 frame = 14
 offset = Vector2(256, -128)
+
+[node name="FPS" type="Control" parent="." unique_id=573161762]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Fps" type="Sprite2D" parent="FPS" unique_id=1273899104]
+texture_filter = 1
+position = Vector2(-87, 64)
+scale = Vector2(2, 2)
+texture = ExtResource("62_e03cv")
+
+[node name="Label" type="Label" parent="FPS/Fps" unique_id=1333674735]
+offset_left = -27.0
+offset_top = -15.5
+offset_right = 37.5
+offset_bottom = 7.5
+text = "balls"
+label_settings = SubResource("LabelSettings_e03cv")
+horizontal_alignment = 2
