@@ -10,8 +10,16 @@ const deceleration = 30	#velocity is divided by 1 + deceleration when decelerati
 var acceleration = 30 	#how much to accelerate
 var stamina = 100 #I don't think this needs explaination
 var running = false # 1 or 0 for is running, not bool because I can avoid an if statement if by making it a number
+<<<<<<< Updated upstream
 const ground_larp = 30 # Speed of lerping between velocity while on ground
 const air_larp = 5 # air resistance (basically ^ but on ground)
+=======
+const larp = 30 # Speed of lerping between velocity
+var disableMovment = false
+var vaulting = false
+var vaultTarget = Vector3()
+var vaultStartingPos = Vector3()
+>>>>>>> Stashed changes
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -23,7 +31,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		%Camera3D.rotation_degrees.x = clamp(%Camera3D.rotation_degrees.x, -80, 80)
 
 func _physics_process(delta: float) -> void:
-	%FPSDisplay.text = str(floor(1/delta))
+	%FPSDisplay.text = str(floor(1/delta)) #converts wasd input into vectors
 	var inputVector2D = Input.get_vector("left", "right", "forward", "backward")
 	inputVector2D = inputVector2D.normalized()
 	var is_moving = inputVector2D.length() > 0 # self explanatory
@@ -32,10 +40,26 @@ func _physics_process(delta: float) -> void:
 	)
 	inputVector3D = transform.basis * inputVector3D
 	
+	if not is_on_floor() and Input.is_action_just_pressed("jump"):
+		if not $MantleRayCasters/Alpha.is_colliding() and $MantleRayCasters/beta.is_colliding() and $MantleRayCasters/Gama.is_colliding() and not vaulting:
+			$MantleRayCasters/Timer.start()
+			disableMovment = true
+			vaulting = true
+			vaultTarget = $MantleRayCasters/beta.get_collision_point()
+			vaultStartingPos = position
+			$CollisionShape3D.disabled = true
+	
+	if vaulting:
+		position = lerp(vaultTarget, vaultStartingPos, $MantleRayCasters/Timer.time_left)
+	if $MantleRayCasters/Timer.time_left == 0 and vaulting:
+		disableMovment = false
+		vaulting = false
+		$CollisionShape3D.disabled = false
+	
 	velocity.y -= 9.8 * delta * 2 #Gravity n' shit(regular gravity was too floaty)
 	velocity.y += int(is_on_floor()) * int(Input.is_action_just_pressed("jump")) * 6.7 # adds jumping n' shit
 	
-	if Input.is_action_just_pressed("run") and stamina >= 0:
+	if Input.is_action_just_pressed("run") and stamina >= 0: #Check if running
 		running = true
 	if Input.is_action_just_released("run") or stamina <= 0:
 		running = false
@@ -60,7 +84,16 @@ func _physics_process(delta: float) -> void:
 	var current_larp = ground_larp if is_on_floor() else air_larp # air resistence logic
 	planarVelocity = lerp(planarVelocity, targetVelocity, delta * current_larp)
 	
+<<<<<<< Updated upstream
 
 	velocity = Vector3(planarVelocity.x, velocity.y, planarVelocity.y)
+=======
+	planarVelocity = lerp(planarVelocity, targetVelocity, delta * larp)
+>>>>>>> Stashed changes
 	
+	if disableMovment:
+		velocity = Vector3()
+	else:
+		velocity = Vector3(planarVelocity.x, velocity.y, planarVelocity.y)
+		
 	move_and_slide()
