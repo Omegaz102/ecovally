@@ -1,15 +1,12 @@
 extends CharacterBody3D
 
 var sens = 0.3	#mouse sensitivity
-const minSpeed = 3 #minimum speed while walking/running
 const maxSpeed = 6.7 #67
 const maxRunSpeed = 4.1 #41
-const deceleration = 30	#velocity is divided by 1 + deceleration when decelerating
-var acceleration = 30 	#how much to accelerate
 var stamina = 100 #I don't think this needs explaination
 var running = false # 1 or 0 for is running, not bool because I can avoid an if statement if by making it a number
-const groundLarp = 30 # Speed of lerping between velocity while on ground
-const airLarp = 2 # air resistance (basically ^ but on ground)
+@export var groundLarp = 30 # Speed of lerping between velocity while on ground
+@export var airLarp = 2 # air resistance (basically ^ but on ground)
 var disableMovment = false
 var vaulting = false
 var vaultTarget = Vector3()
@@ -81,8 +78,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y += 6.7
 		planarVelocity = planarVelocity * 1.15
 
-	"""if not is_on_floor() and inputVector2D.length() == 0:
-		targetVelocity = planarVelocity""" # more quakey or source like jumping see if you like it more
 	var currentLarp = groundLarp if is_on_floor() else airLarp # air resistence logic
 	planarVelocity = lerp(planarVelocity, targetVelocity, delta * currentLarp)
 	
