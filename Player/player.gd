@@ -9,7 +9,7 @@ var acceleration = 30 	#how much to accelerate
 var stamina = 100 #I don't think this needs explaination
 var running = false # 1 or 0 for is running, not bool because I can avoid an if statement if by making it a number
 const groundLarp = 30 # Speed of lerping between velocity while on ground
-const airLarp = 5 # air resistance (basically ^ but on ground)
+const airLarp = 2 # air resistance (basically ^ but on ground)
 var disableMovment = false
 var vaulting = false
 var vaultTarget = Vector3()
@@ -51,8 +51,8 @@ func _physics_process(delta: float) -> void:
 		vaulting = false
 		$CollisionShape3D.disabled = false
 	
-	velocity.y -= 9.8 * delta * 2 #Gravity n' shit(regular gravity was too floaty)
-	velocity.y += int(is_on_floor()) * int(Input.is_action_just_pressed("jump")) * 6.7 # adds jumping n' shit
+#	velocity.y += int(is_on_floor()) * int(Input.is_action_just_pressed("jump")) * 6.7 # adds jumping n' shit
+#	velocity.vel += int(is_on_floor()) * int(Input.is_action_just_pressed("jump"))
 	
 	if Input.is_action_just_pressed("run") and stamina >= 0: #Check if running
 		running = true
@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 		running = false
 	
 	var draining = running and is_moving # made it so when your moving it drains stamina not just running
-	stamina -= 40 * delta * int(draining)
+	stamina -= 20 * delta * int(draining)
 	stamina += 40 * delta * (1 - int(draining))
 	
 	stamina = clamp(stamina, 0, 100)
@@ -72,8 +72,15 @@ func _physics_process(delta: float) -> void:
 	if inputVector2D.length() > 0: #new system for handling movement
 		targetVelocity = (maxSpeed + maxRunSpeed * int(running)) * Vector2(inputVector3D.x, inputVector3D.z)  # target speed get's what will be lerped to
 	
+	
 	else:
 		targetVelocity = Vector2()
+
+	velocity.y -= 9.8 * delta * 2 #Gravity n' shit(regular gravity was too floaty)
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
+		velocity.y += 6.7
+		planarVelocity = planarVelocity * 1.1
+
 	"""if not is_on_floor() and inputVector2D.length() == 0:
 		targetVelocity = planarVelocity""" # more quakey or source like jumping see if you like it more
 	var currentLarp = groundLarp if is_on_floor() else airLarp # air resistence logic
