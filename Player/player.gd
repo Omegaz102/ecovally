@@ -5,21 +5,18 @@ const minSpeed = 3 #minimum speed while walking/running
 const maxSpeed = 6.7 #67
 const maxRunSpeed = 4.1 #41
 const walkAcceleration = 2
-const runAcceleration = 25
 const deceleration = 30	#velocity is divided by 1 + deceleration when decelerating
 var acceleration = 30 	#how much to accelerate
 var stamina = 100 #I don't think this needs explaination
 var running = false # 1 or 0 for is running, not bool because I can avoid an if statement if by making it a number
-<<<<<<< Updated upstream
-const ground_larp = 30 # Speed of lerping between velocity while on ground
-const air_larp = 5 # air resistance (basically ^ but on ground)
-=======
 const larp = 30 # Speed of lerping between velocity
+const groundLarp = 30 # Speed of lerping between velocity while on ground
+const airLarp = 5 # air resistance (basically ^ but on ground)
 var disableMovment = false
 var vaulting = false
 var vaultTarget = Vector3()
 var vaultStartingPos = Vector3()
->>>>>>> Stashed changes
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -50,7 +47,7 @@ func _physics_process(delta: float) -> void:
 			$CollisionShape3D.disabled = true
 	
 	if vaulting:
-		position = lerp(vaultTarget, vaultStartingPos, $MantleRayCasters/Timer.time_left)
+		position = lerp(vaultTarget, vaultStartingPos, $MantleRayCasters/Timer.time_left / $MantleRayCasters/Timer.wait_time)
 	if $MantleRayCasters/Timer.time_left == 0 and vaulting:
 		disableMovment = false
 		vaulting = false
@@ -81,15 +78,8 @@ func _physics_process(delta: float) -> void:
 		targetVelocity = Vector2()
 	"""if not is_on_floor() and inputVector2D.length() == 0:
 		targetVelocity = planarVelocity""" # more quakey or source like jumping see if you like it more
-	var current_larp = ground_larp if is_on_floor() else air_larp # air resistence logic
-	planarVelocity = lerp(planarVelocity, targetVelocity, delta * current_larp)
-	
-<<<<<<< Updated upstream
-
-	velocity = Vector3(planarVelocity.x, velocity.y, planarVelocity.y)
-=======
-	planarVelocity = lerp(planarVelocity, targetVelocity, delta * larp)
->>>>>>> Stashed changes
+	var currentLarp = groundLarp if is_on_floor() else airLarp # air resistence logic
+	planarVelocity = lerp(planarVelocity, targetVelocity, delta * currentLarp)
 	
 	if disableMovment:
 		velocity = Vector3()

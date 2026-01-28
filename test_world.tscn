@@ -40,6 +40,7 @@ shadow_blur = 0.0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=231518951]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.8416996, -13.5)
+use_collision = true
 size = Vector3(10, 2, 4)
 material = ExtResource("1_gy3sr")
 
@@ -61,8 +62,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.5, -5)
 use_collision = true
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=490225501]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1.5, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.494523, 1, 0)
 use_collision = true
+size = Vector3(3, 2, 3)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=1381700200]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1.5, -3)

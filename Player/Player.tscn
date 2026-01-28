@@ -279,6 +279,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
+[node name="MantleRayCasters" type="Node3D" parent="." unique_id=1506333913]
+
+[node name="Alpha" type="RayCast3D" parent="MantleRayCasters" unique_id=946306777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.5)
+target_position = Vector3(0, 0, -0.5)
+
+[node name="beta" type="RayCast3D" parent="MantleRayCasters" unique_id=297514083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
+target_position = Vector3(0, -1.01, 0)
+
+[node name="Gama" type="RayCast3D" parent="MantleRayCasters" unique_id=1811897259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.741307, -0.5)
+target_position = Vector3(0, 0, -0.5)
+
+[node name="Timer" type="Timer" parent="MantleRayCasters" unique_id=837790134]
+wait_time = 0.5
+one_shot = true
+
 [node name="Control" type="Control" parent="." unique_id=1054401221]
 layout_mode = 3
 anchors_preset = 2
