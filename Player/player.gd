@@ -36,11 +36,11 @@ func _physics_process(delta: float) -> void:
 	inputVector3D = transform.basis * inputVector3D
 	
 	if not is_on_floor() and Input.is_action_just_pressed("jump"):
-		if not $MantleRayCasters/Alpha.is_colliding() and $MantleRayCasters/beta.is_colliding() and $MantleRayCasters/Gama.is_colliding() and not vaulting:
+		if not $MantleRayCasters/Alpha.is_colliding() and $MantleRayCasters/Beta.is_colliding() and $MantleRayCasters/Gamma.is_colliding() and not vaulting:
 			$MantleRayCasters/Timer.start()
 			disableMovment = true
 			vaulting = true
-			vaultTarget = $MantleRayCasters/beta.get_collision_point()
+			vaultTarget = $MantleRayCasters/Beta.get_collision_point()
 			vaultStartingPos = position
 			$CollisionShape3D.disabled = true
 	
@@ -79,7 +79,7 @@ func _physics_process(delta: float) -> void:
 	velocity.y -= 9.8 * delta * 2 #Gravity n' shit(regular gravity was too floaty)
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y += 6.7
-		planarVelocity = planarVelocity * 1.1
+		planarVelocity = planarVelocity * 1.15
 
 	"""if not is_on_floor() and inputVector2D.length() == 0:
 		targetVelocity = planarVelocity""" # more quakey or source like jumping see if you like it more

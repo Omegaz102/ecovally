@@ -285,11 +285,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.5)
 target_position = Vector3(0, 0, -0.5)
 
-[node name="beta" type="RayCast3D" parent="MantleRayCasters" unique_id=297514083]
+[node name="Beta" type="RayCast3D" parent="MantleRayCasters" unique_id=297514083]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
 target_position = Vector3(0, -1.01, 0)
 
-[node name="Gama" type="RayCast3D" parent="MantleRayCasters" unique_id=1811897259]
+[node name="Gamma" type="RayCast3D" parent="MantleRayCasters" unique_id=1811897259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.741307, -0.5)
 target_position = Vector3(0, 0, -0.5)
 
