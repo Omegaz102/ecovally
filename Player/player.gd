@@ -10,7 +10,8 @@ const deceleration = 30	#velocity is divided by 1 + deceleration when decelerati
 var acceleration = 30 	#how much to accelerate
 var stamina = 100 #I don't think this needs explaination
 var running = false # 1 or 0 for is running, not bool because I can avoid an if statement if by making it a number
-const larp = 30 # Speed of lerping between velocity
+const ground_larp = 30 # Speed of lerping between velocity while on ground
+const air_larp = 5 # air resistance (basically ^ but on ground)
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -25,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	%FPSDisplay.text = str(floor(1/delta))
 	var inputVector2D = Input.get_vector("left", "right", "forward", "backward")
 	inputVector2D = inputVector2D.normalized()
+	var is_moving = inputVector2D.length() > 0 # self explanatory
 	var inputVector3D = Vector3(
 		inputVector2D.x, 0, inputVector2D.y
 	)
@@ -38,8 +40,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("run") or stamina <= 0:
 		running = false
 	
-	stamina -= 40 * delta * int(running)
-	stamina += 40 * delta * (1 - int(running))
+	var draining = running and is_moving # made it so when your moving it drains stamina not just running
+	stamina -= 40 * delta * int(draining)
+	stamina += 40 * delta * (1 - int(draining))
 	
 	stamina = clamp(stamina, 0, 100)
 
@@ -52,8 +55,12 @@ func _physics_process(delta: float) -> void:
 	
 	else:
 		targetVelocity = Vector2()
+	"""if not is_on_floor() and inputVector2D.length() == 0:
+		targetVelocity = planarVelocity""" # more quakey or source like jumping see if you like it more
+	var current_larp = ground_larp if is_on_floor() else air_larp # air resistence logic
+	planarVelocity = lerp(planarVelocity, targetVelocity, delta * current_larp)
 	
-	planarVelocity = lerp(planarVelocity, targetVelocity, delta * larp)
+
 	velocity = Vector3(planarVelocity.x, velocity.y, planarVelocity.y)
 	
 	move_and_slide()
