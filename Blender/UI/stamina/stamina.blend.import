@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://k8vlnwj5h2p1"
-valid=false
+path="res://.godot/imported/stamina.blend-edd674b165fdc03e87404e0b3e2dd41d.scn"
 
 [deps]
 
 source_file="res://Blender/UI/stamina/stamina.blend"
+dest_files=["res://.godot/imported/stamina.blend-edd674b165fdc03e87404e0b3e2dd41d.scn"]
 
 [params]
 

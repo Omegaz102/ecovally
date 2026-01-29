@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	
 	var draining := int(running and is_moving)
 
-	if stamina <= 3 and staminaRegen == 1:
+	if stamina <= 5 and staminaRegen == 1:
 		staminaRegen = 0
 		$Control/Timer.start()
 
