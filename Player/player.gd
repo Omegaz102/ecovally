@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 var sens = 0.3	#mouse sensitivity
-const maxSpeed = 6.7 #67
-const maxRunSpeed = 4.1 #41
+const maxSpeed = 3.5 #67 (3.5 feels more weighty -ET)
+const maxRunSpeed = 2 #41
 var stamina = 100 #I don't think this needs explaination
 var running = false # 1 or 0 for is running, not bool because I can avoid an if statement if by making it a number
 @export var groundLarp = 30 # Speed of lerping between velocity while on ground
@@ -63,6 +63,7 @@ func _physics_process(delta: float) -> void:
 	stamina = clamp(stamina, 0, 100)
 
 	%StaminaMeater.frame = remap(stamina, 100, 0, 0, 60)
+	 
 	
 	var planarVelocity = Vector2(velocity.x, velocity.z) #seperates planar movment so planar movment doesn't affect jumping/falling
 	var targetVelocity = Vector2() #planar velocity sans lerp

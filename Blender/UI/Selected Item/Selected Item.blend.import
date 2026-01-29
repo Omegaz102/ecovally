@@ -3,12 +3,12 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://k8vlnwj5h2p1"
+uid="uid://dgte2dggkxdla"
 valid=false
 
 [deps]
 
-source_file="res://Blender/UI/stamina/stamina.blend"
+source_file="res://Blender/UI/Selected Item/Selected Item.blend"
 
 [params]
 
