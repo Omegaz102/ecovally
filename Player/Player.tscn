@@ -803,6 +803,10 @@ sprite_frames = SubResource("SpriteFrames_wn0tj")
 frame = 14
 offset = Vector2(256, -128)
 
+[node name="Timer" type="Timer" parent="Control" unique_id=1132936351]
+wait_time = 0.4
+one_shot = true
+
 [node name="FPS" type="Control" parent="." unique_id=573161762]
 layout_mode = 3
 anchors_preset = 1

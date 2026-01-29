@@ -11,7 +11,7 @@ var disableMovment = false
 var vaulting = false
 var vaultTarget = Vector3()
 var vaultStartingPos = Vector3()
-
+var staminaRegen = 1
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -51,17 +51,23 @@ func _physics_process(delta: float) -> void:
 #	velocity.y += int(is_on_floor()) * int(Input.is_action_just_pressed("jump")) * 6.7 # adds jumping n' shit
 #	velocity.vel += int(is_on_floor()) * int(Input.is_action_just_pressed("jump"))
 	
-	if Input.is_action_just_pressed("run") and stamina >= 0: #Check if running
+	if Input.is_action_just_pressed("run") and stamina >= 3: #Check if running
 		running = true
 	if Input.is_action_just_released("run") or stamina <= 0:
 		running = false
 	
-	var draining = running and is_moving # made it so when your moving it drains stamina not just running
-	stamina -= 20 * delta * int(draining)
-	stamina += 40 * delta * (1 - int(draining))
-	
-	stamina = clamp(stamina, 0, 100)
+	var draining := int(running and is_moving)
 
+	if stamina <= 3 and staminaRegen == 1:
+		staminaRegen = 0
+		$Control/Timer.start()
+
+	if $Control/Timer.time_left == 0 and staminaRegen == 0:
+		staminaRegen = 1
+	
+	stamina += delta * (-20 * draining + 40 * (1 - draining) * staminaRegen)
+
+	stamina = clamp(stamina, 0, 100)
 	%StaminaMeater.frame = remap(stamina, 100, 0, 0, 60)
 	 
 	
