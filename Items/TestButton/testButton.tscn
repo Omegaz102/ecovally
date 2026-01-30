@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://4qlunuaumvpt"]
+
+[ext_resource type="Script" uid="uid://pfv58oms14ar" path="res://Items/TestButton/testButton.gd" id="1_g3nvf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8a6fg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g3nvf"]
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=2010132820]
+script = ExtResource("1_g3nvf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=908552987]
+mesh = SubResource("BoxMesh_8a6fg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=743653724]
+shape = SubResource("BoxShape3D_g3nvf")

@@ -1,0 +1,1 @@
+extends "res://Interactable.gd"
