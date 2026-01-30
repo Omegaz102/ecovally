@@ -12,6 +12,11 @@ var vaulting = false
 var vaultTarget = Vector3()
 var vaultStartingPos = Vector3()
 var staminaRegen = 1
+var disablePlatformInherit = false # Self explanatory, if true, you will not rotate with the object below you, if false you will.
+
+var lastFloorTransform: Transform3D
+var lastFloor: Node3D
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -94,3 +99,26 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector3(planarVelocity.x, velocity.y, planarVelocity.y)
 		
 	move_and_slide()
+
+	if is_on_floor():
+		var floorCollision: KinematicCollision3D = get_last_slide_collision()
+		if floorCollision and !disablePlatformInherit:
+			var floorNode = floorCollision.get_collider()
+			
+			if floorNode is Node3D:
+				if floorNode != lastFloor:
+					lastFloor = floorNode
+					lastFloorTransform = floorNode.global_transform
+				else:
+					var prevBasis = lastFloorTransform.basis
+					var currTransform = floorNode.global_transform
+					var deltaBasis = currTransform.basis * prevBasis.inverse()
+
+					global_transform.basis = deltaBasis * global_transform.basis
+
+					var pivot = currTransform.origin
+					global_position = pivot + deltaBasis * (global_position - pivot)
+
+					lastFloorTransform = currTransform
+	else:
+		lastFloor = null
