@@ -14,3 +14,5 @@ mesh = SubResource("BoxMesh_8a6fg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=743653724]
 shape = SubResource("BoxShape3D_g3nvf")
+
+[connection signal="Interacted" from="." to="." method="_on_interacted"]
