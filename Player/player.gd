@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 var sens = 0.3	#mouse sensitivity
-const maxSpeed = 3.5 #67 (3.5 feels more weighty -ET)
-const maxRunSpeed = 2 #41
+@export var maxSpeed = 3.5 #67 (3.5 feels more weighty -ET)
+@export var maxRunSpeed = 2 #41
 var stamina = 100 #I don't think this needs explaination
 var running = false # 1 or 0 for is running, not bool because I can avoid an if statement if by making it a number
 @export var groundLarp = 30 # Speed of lerping between velocity while on ground
@@ -60,9 +60,9 @@ func _physics_process(delta: float) -> void:
 
 	if stamina <= 5 and staminaRegen == 1:
 		staminaRegen = 0
-		$Control/Timer.start()
+		$UI/Stamina/Timer.start()
 
-	if $Control/Timer.time_left == 0 and staminaRegen == 0:
+	if $UI/Stamina/Timer.time_left == 0 and staminaRegen == 0:
 		staminaRegen = 1
 	
 	stamina += delta * (-20 * draining + 40 * (1 - draining) * staminaRegen)

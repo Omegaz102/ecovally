@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cg3rp2w8r4feb"]
 
 [ext_resource type="Script" uid="uid://cyllv0at5cmle" path="res://Player/player.gd" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://hq66jgvh05pw" path="res://Player/interactionRaycast.gd" id="2_fs4sq"]
 [ext_resource type="Texture2D" uid="uid://bkbj6va5201ve" path="res://Player/UI/Stamina/0001.png" id="2_sqgfh"]
 [ext_resource type="Texture2D" uid="uid://m1y5m8egusd2" path="res://Player/UI/Stamina/0002.png" id="3_e03cv"]
 [ext_resource type="Texture2D" uid="uid://mx0lh5nw7e4p" path="res://Player/UI/Stamina/0003.png" id="4_xehjw"]
@@ -751,6 +752,7 @@ animations = [{
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1504471152]
 script = ExtResource("1_xhfnw")
+maxRunSpeed = 3
 groundLarp = 15
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1043593158]
@@ -767,6 +769,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=620802720]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="InteractionRay" type="RayCast3D" parent="Node3D/Camera3D" unique_id=1626128708]
+target_position = Vector3(0, 0, -5)
+script = ExtResource("2_fs4sq")
 
 [node name="MantleRayCasters" type="Node3D" parent="." unique_id=1506333913]
 
@@ -786,7 +792,9 @@ target_position = Vector3(0, 0, -0.5)
 wait_time = 0.5
 one_shot = true
 
-[node name="Control" type="Control" parent="." unique_id=1054401221]
+[node name="UI" type="Node" parent="." unique_id=232653447]
+
+[node name="Stamina" type="Control" parent="UI" unique_id=1054401221]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -795,7 +803,7 @@ offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="StaminaMeater" type="AnimatedSprite2D" parent="Control" unique_id=2120771723]
+[node name="StaminaMeater" type="AnimatedSprite2D" parent="UI/Stamina" unique_id=2120771723]
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(0, 40)
@@ -803,11 +811,11 @@ sprite_frames = SubResource("SpriteFrames_wn0tj")
 frame = 14
 offset = Vector2(256, -128)
 
-[node name="Timer" type="Timer" parent="Control" unique_id=1132936351]
+[node name="Timer" type="Timer" parent="UI/Stamina" unique_id=1132936351]
 wait_time = 0.4
 one_shot = true
 
-[node name="FPS" type="Control" parent="." unique_id=573161762]
+[node name="FPS" type="Control" parent="UI" unique_id=573161762]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -816,13 +824,13 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="Fps" type="Sprite2D" parent="FPS" unique_id=1273899104]
+[node name="Fps" type="Sprite2D" parent="UI/FPS" unique_id=1273899104]
 texture_filter = 1
 position = Vector2(-87, 64)
 scale = Vector2(2, 2)
 texture = ExtResource("62_e03cv")
 
-[node name="FPSDisplay" type="Label" parent="FPS/Fps" unique_id=1333674735]
+[node name="FPSDisplay" type="Label" parent="UI/FPS/Fps" unique_id=1333674735]
 unique_name_in_owner = true
 offset_left = -27.0
 offset_top = -15.5
@@ -832,12 +840,13 @@ text = "balls"
 label_settings = SubResource("LabelSettings_e03cv")
 horizontal_alignment = 2
 
-[node name="Label" type="Label" parent="." unique_id=2122822879]
+[node name="DevLable" type="Label" parent="UI" unique_id=2122822879]
+unique_name_in_owner = true
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 34.0
 label_settings = SubResource("LabelSettings_xehjw")
 
-[node name="ItemDisplay" type="Control" parent="." unique_id=611165024]
+[node name="ItemDisplay" type="Control" parent="UI" unique_id=611165024]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -850,7 +859,7 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ItemDisplay" unique_id=1999842408]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/ItemDisplay" unique_id=1999842408]
 position = Vector2(40, 40)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_e3axp")

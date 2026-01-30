@@ -1,0 +1,11 @@
+res://test_world.tscn
+res://main.tscn
+res://interactableBase.tscn
+res://Player/Player.tscn
+res://Player/player.gd
+res://Items/testButton.tscn
+res://Interactable.gd
+res://Items/testButton.gd
+res://Items/TestButton/testButton.gd
+res://Player/interactionRaycast.gd
+res://Items/TestButton/testButton.tscn
