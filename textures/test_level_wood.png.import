@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://herxxbrdytq7"
-path.s3tc="res://.godot/imported/test_level_wood.png-d369a36ae6d25bccc3c2a7a77d885bf1.s3tc.ctex"
+path.s3tc="res://.godot/imported/test_level_wood.png-f21c5fef761bcbcbf20208340918536d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://test_level_wood.png"
-dest_files=["res://.godot/imported/test_level_wood.png-d369a36ae6d25bccc3c2a7a77d885bf1.s3tc.ctex"]
+source_file="res://textures/test_level_wood.png"
+dest_files=["res://.godot/imported/test_level_wood.png-f21c5fef761bcbcbf20208340918536d.s3tc.ctex"]
 
 [params]
 
