@@ -781,11 +781,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.5)
 target_position = Vector3(0, 0, -0.5)
 
 [node name="Beta" type="RayCast3D" parent="MantleRayCasters" unique_id=297514083]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 1.5, -1)
 target_position = Vector3(0, -1.01, 0)
 
 [node name="Gamma" type="RayCast3D" parent="MantleRayCasters" unique_id=1811897259]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.741307, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38511133, -0.5)
 target_position = Vector3(0, 0, -0.5)
 
 [node name="Timer" type="Timer" parent="MantleRayCasters" unique_id=837790134]
