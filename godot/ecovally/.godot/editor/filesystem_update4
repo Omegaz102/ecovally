@@ -1,2 +1,8 @@
 res://main.tscn
 res://main.gd
+res://test_world.tscn
+res://Items/test_gun.tscn
+res://Items/gunBase.gd
+res://Player/player.gd
+res://Player/Player.tscn
+res://Player/hot_bar.gd

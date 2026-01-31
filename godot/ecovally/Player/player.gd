@@ -1,12 +1,12 @@
 extends CharacterBody3D
 
 var sens = 0.3	#mouse sensitivity
-@export var maxSpeed = 3.5 #67 (3.5 feels more weighty -ET)
-@export var maxRunSpeed = 2 #41
+var maxSpeed = 3.5 #67 (3.5 feels more weighty -ET)
+var maxRunSpeed = 2 #41
 var stamina = 100 #I don't think this needs explaination
 var running = false # 1 or 0 for is running, not bool because I can avoid an if statement if by making it a number
-@export var groundLarp = 30 # Speed of lerping between velocity while on ground
-@export var airLarp = 2 # air resistance (basically ^ but on ground)
+var groundLarp = 30 # Speed of lerping between velocity while on ground
+var airLarp = 2 # air resistance (basically ^ but on ground)
 var disableMovment = false
 var vaulting = false
 var vaultTarget = Vector3()
@@ -16,7 +16,6 @@ var disablePlatformInherit = false # Self explanatory, if true, you will not rot
 
 var lastFloorTransform: Transform3D
 var lastFloor: Node3D
-
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -104,6 +103,7 @@ func _physics_process(delta: float) -> void:
 		var floorCollision: KinematicCollision3D = get_last_slide_collision()
 		if floorCollision and !disablePlatformInherit:
 			var floorNode = floorCollision.get_collider()
+			
 			
 			if floorNode is Node3D:
 				if floorNode != lastFloor:
