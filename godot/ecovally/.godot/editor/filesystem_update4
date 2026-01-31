@@ -6,3 +6,4 @@ res://Items/gunBase.gd
 res://Player/player.gd
 res://Player/Player.tscn
 res://Player/hot_bar.gd
+res://Global.gd

@@ -1,5 +1,7 @@
 extends Node
 var currentScene: Node
+var player: Node
+var hotBar: Node
 
 func _ready() -> void:
 	loadScene("res://test_world.tscn")

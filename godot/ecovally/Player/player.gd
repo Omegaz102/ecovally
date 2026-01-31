@@ -19,6 +19,7 @@ var lastFloor: Node3D
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Global.player = self
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:	#mouse input

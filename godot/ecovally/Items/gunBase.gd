@@ -2,11 +2,15 @@ extends "res://Interactable.gd"
 
 
 func _on_interacted() -> void:
-	pass # Replace with function body.
+	Global.hotBar.addItem(self)
+	position = Vector3()
+	rotation = Vector3()
+	scale = Vector3(1, 1, 1)
+	get_parent().remove_child(self)
 
 
 func _on_tree_entered() -> void:
-	if get_parent() == %hotBar:
+	if get_parent() == Global.hotBar:
 		var equiped = true
 		$CollisionShape3D.disabled = true
 	else:
