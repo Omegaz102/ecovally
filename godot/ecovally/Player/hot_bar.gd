@@ -33,6 +33,8 @@ func _physics_process(delta: float) -> void:
 			selected = 1
 		if hotBar[selected] != null:
 			changeItem(hotBar[selected])
+		else:
+			remove_child(get_child(0))
 			
 	if Input.is_action_just_pressed("PreviousItem"):
 		selected -= 1
@@ -40,3 +42,5 @@ func _physics_process(delta: float) -> void:
 			selected = hotBar.size() - 1
 		if hotBar[selected] != null:
 			changeItem(hotBar[selected])
+		else:
+			remove_child(get_child(0))
