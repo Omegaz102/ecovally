@@ -1,1 +1,4 @@
+res://Player/Player.tscn
+res://Player/hot_bar.gd
 res://test_world.tscn
+res://Player/player.gd
