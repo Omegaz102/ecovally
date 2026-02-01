@@ -17,8 +17,11 @@ var vaultTarget = Vector3()
 var vaultStartingPos = Vector3()
 
 # STAMINA
-var staminaRegen = 1
+var staminaRegen = 15
 var stamina = 100 #I don't think this needs explaination
+var canRun = true
+var staminaDrain = -10
+
 
 # CROUCHING
 var crouching = false
@@ -66,16 +69,23 @@ func _physics_process(delta: float) -> void:
 		disableMovment = false
 		vaulting = false
 		$CollisionShape3D.disabled = false
-		
-	
 	
 #	velocity.y += int(is_on_floor()) * int(Input.is_action_just_pressed("jump")) * 6.7 # adds jumping n' shit
 #	velocity.vel += int(is_on_floor()) * int(Input.is_action_just_pressed("jump"))
 	
-	if Input.is_action_just_pressed("run") and stamina >= 3 and !crouching == true: #Check if running
+	if Input.is_action_pressed("run") and !crouching and canRun and is_moving: #Check if running
 		running = true
-	if Input.is_action_just_released("run") or stamina <= 0:
+		print("hola")
+	else:
 		running = false
+		print("nola")
+		
+	if canRun: #check for no stamina left
+		if stamina <= 0 and canRun:
+			canRun = false
+	else:
+		if stamina >= 100 and !canRun:
+			canRun = true
 	
 	if Input.is_action_just_pressed("crouch"):
 		crouching = true
@@ -86,16 +96,9 @@ func _physics_process(delta: float) -> void:
 	if not crouching:
 		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, target_scale_y, lerp_speed * delta)
 	
-	var draining := int(running and is_moving and !crouching)
-
-	if stamina <= 5 and staminaRegen == 1:
-		staminaRegen = 0
-		$UI/Stamina/Timer.start()
-
-	if $UI/Stamina/Timer.time_left == 0 and staminaRegen == 0:
-		staminaRegen = 1
+	var draining: int = (running and is_moving)
 	
-	stamina += delta * (-20 * draining + 40 * (1 - draining) * staminaRegen)
+	stamina += delta * (staminaDrain * draining + staminaRegen * (1 - draining))
 
 	stamina = clamp(stamina, 0, 100)
 	%StaminaMeater.frame = remap(stamina, 100, 0, 0, 60)

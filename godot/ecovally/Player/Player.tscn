@@ -188,6 +188,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kpjcp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kne1u"]
+height = 1.8
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wn0tj"]
 animations = [{
