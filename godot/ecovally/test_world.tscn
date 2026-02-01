@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bfi5ufeqgerrt"]
+
+[ext_resource type="Texture2D" uid="uid://b5a743f3pkpql" path="res://brown_photostudio_02_4k.exr" id="1_dxppu"]
+[ext_resource type="Material" uid="uid://h8qqgjci2ivr" path="res://Materials/proto/kennyProtoLight.tres" id="1_gy3sr"]
+[ext_resource type="PackedScene" uid="uid://cg3rp2w8r4feb" path="res://Player/Player.tscn" id="3_1lwx6"]
+[ext_resource type="PackedScene" uid="uid://4qlunuaumvpt" path="res://Items/TestButton/testButton.tscn" id="4_dsnr4"]
+[ext_resource type="PackedScene" uid="uid://kpplis3xr7wb" path="res://test_level.glb" id="5_lf0gk"]
+[ext_resource type="PackedScene" uid="uid://32n1um4f0ghv" path="res://Items/test_gun.tscn" id="6_cnaw2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t34gm"]
+material = ExtResource("1_gy3sr")
+size = Vector2(50, 50)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_dxppu"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gy3sr"]
+panorama = ExtResource("1_dxppu")
+energy_multiplier = 0.3
+
+[sub_resource type="Sky" id="Sky_1lwx6"]
+sky_material = SubResource("PanoramaSkyMaterial_gy3sr")
+
+[sub_resource type="Environment" id="Environment_dsnr4"]
+background_mode = 2
+background_color = Color(0.9760029, 0.45523238, 0.75220835, 1)
+sky = SubResource("Sky_1lwx6")
+ssr_enabled = true
+ssao_enabled = true
+ssao_intensity = 1.0
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+fog_enabled = true
+volumetric_fog_enabled = true
+adjustment_enabled = true
+
+[node name="Test world" type="Node3D" unique_id=801423077]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=913973988]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=492884653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+mesh = SubResource("PlaneMesh_t34gm")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1909617093]
+shape = SubResource("WorldBoundaryShape3D_dxppu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=797875261]
+transform = Transform3D(0.4113872, 0.82031417, -0.3972974, 7.743411e-09, 0.43589082, 0.8999995, 0.91146064, -0.37024826, 0.17931987, 0, 20.858194, 0)
+light_energy = 0.67
+shadow_enabled = true
+shadow_blur = 0.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=231518951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.8416996, -13.5)
+use_collision = true
+size = Vector3(10, 2, 4)
+material = ExtResource("1_gy3sr")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1156742266]
+environment = SubResource("Environment_dsnr4")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1276065030]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -7)
+use_collision = true
+size = Vector3(11, 4, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=2007243438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -6)
+use_collision = true
+size = Vector3(1, 2, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1141517308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.5, -5)
+use_collision = true
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=490225501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.494523, 1, 0)
+use_collision = true
+size = Vector3(3, 2, 3)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=1381700200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1.5, -3)
+use_collision = true
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=2011617909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.237073, 1.5, -3)
+use_collision = true
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=167645046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.74489, 1.0062473, -2.4982023)
+use_collision = true
+polygon = PackedVector2Array(0, 0, -1, 2, 1, 1, 1, 0)
+
+[node name="CharacterBody3D" parent="." unique_id=1504471152 instance=ExtResource("3_1lwx6")]
+
+[node name="StaticBody3D2" parent="." unique_id=2010132820 instance=ExtResource("4_dsnr4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5243347, 0.49999952, 3.527677)
+
+[node name="test_level" parent="." unique_id=1426244786 instance=ExtResource("5_lf0gk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018657684, -9.536743e-07, -0.008073807)
+
+[node name="TestGun" parent="." unique_id=2065591760 instance=ExtResource("6_cnaw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2363644, 0.25, 6.0510864)

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://32n1um4f0ghv"]
+
+[ext_resource type="Script" uid="uid://dqfx666o010qi" path="res://Items/gunBase.gd" id="1_276ij"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w8jek"]
+size = Vector3(1.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_73v78"]
+
+[node name="TestGun" type="StaticBody3D" unique_id=2065591760]
+script = ExtResource("1_276ij")
+DisplayName = "Test Gun"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=685811710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39999998, 0, 0)
+shape = SubResource("BoxShape3D_w8jek")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2004502373]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.39999998, 0, 0)
+mesh = SubResource("BoxMesh_73v78")
+
+[connection signal="Interacted" from="." to="." method="_on_interacted"]
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
