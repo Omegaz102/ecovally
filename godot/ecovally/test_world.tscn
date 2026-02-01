@@ -24,6 +24,15 @@ sky_material = SubResource("PanoramaSkyMaterial_gy3sr")
 background_mode = 2
 background_color = Color(0.9760029, 0.45523238, 0.75220835, 1)
 sky = SubResource("Sky_1lwx6")
+ssr_enabled = true
+ssao_enabled = true
+ssao_intensity = 1.0
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+fog_enabled = true
+volumetric_fog_enabled = true
+adjustment_enabled = true
 
 [node name="Test world" type="Node3D" unique_id=801423077]
 
