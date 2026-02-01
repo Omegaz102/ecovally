@@ -1,2 +1,2 @@
-res://main.tscn
-res://main.gd
+res://Player/Player.tscn
+res://Player/hot_bar.gd

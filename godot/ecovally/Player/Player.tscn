@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://hq66jgvh05pw" path="res://Player/interactionRaycast.gd" id="2_fs4sq"]
 [ext_resource type="Texture2D" uid="uid://bkbj6va5201ve" path="res://Player/UI/Stamina/0001.png" id="2_sqgfh"]
 [ext_resource type="Texture2D" uid="uid://m1y5m8egusd2" path="res://Player/UI/Stamina/0002.png" id="3_e03cv"]
+[ext_resource type="Script" uid="uid://d0r57memku20p" path="res://Player/hot_bar.gd" id="3_eew28"]
 [ext_resource type="Texture2D" uid="uid://mx0lh5nw7e4p" path="res://Player/UI/Stamina/0003.png" id="4_xehjw"]
 [ext_resource type="Texture2D" uid="uid://bcbs3nw36y2si" path="res://Player/UI/Stamina/0004.png" id="5_27xwf"]
 [ext_resource type="Texture2D" uid="uid://dsgnnp5x25kh2" path="res://Player/UI/Stamina/0005.png" id="6_808i2"]
@@ -752,8 +753,6 @@ animations = [{
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1504471152]
 script = ExtResource("1_xhfnw")
-maxRunSpeed = 3
-groundLarp = 15
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1043593158]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -773,6 +772,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="InteractionRay" type="RayCast3D" parent="Node3D/Camera3D" unique_id=1626128708]
 target_position = Vector3(0, 0, -5)
 script = ExtResource("2_fs4sq")
+
+[node name="hotBar" type="Node3D" parent="Node3D/Camera3D" unique_id=270344936]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45870662, -0.2507472, -0.5676863)
+script = ExtResource("3_eew28")
 
 [node name="MantleRayCasters" type="Node3D" parent="." unique_id=1506333913]
 
