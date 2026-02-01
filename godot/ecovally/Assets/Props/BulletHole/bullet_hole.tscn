@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://rbb8c8211hl0"]
+
+[ext_resource type="Script" uid="uid://bem0jdlux2my7" path="res://Assets/Props/BulletHole/bullet_hole.gd" id="1_7hpv6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7hpv6"]
+shading_mode = 2
+albedo_color = Color(0.28118682, 0.28118688, 0.28118682, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4ovho"]
+material = SubResource("StandardMaterial3D_7hpv6")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.1
+
+[node name="BulletHole" type="Node3D" unique_id=1522321773]
+script = ExtResource("1_7hpv6")
+
+[node name="Timer" type="Timer" parent="." unique_id=854385063]
+wait_time = 5.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2071138675]
+mesh = SubResource("CylinderMesh_4ovho")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

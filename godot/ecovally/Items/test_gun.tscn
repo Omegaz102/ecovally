@@ -9,15 +9,19 @@ size = Vector3(1.5, 0.5, 0.5)
 
 [node name="TestGun" type="StaticBody3D" unique_id=2065591760]
 script = ExtResource("1_276ij")
+magSize = 6
 DisplayName = "Test Gun"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=685811710]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39999998, 0, 0)
+transform = Transform3D(-1.7484554e-08, 0, -0.39999998, 0, 0.39999998, 0, 0.39999998, 0, -1.7484554e-08, -2.9802322e-08, 0, 0.2)
 shape = SubResource("BoxShape3D_w8jek")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2004502373]
-transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.39999998, 0, 0)
+transform = Transform3D(-2.6226829e-08, 0, -0.19999997, 0, 0.19999997, 0, 0.5999999, 0, -8.742276e-09, -2.9802322e-08, 0, 0.2)
 mesh = SubResource("BoxMesh_73v78")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=977397898]
+target_position = Vector3(0, 0, -20)
 
 [connection signal="Interacted" from="." to="." method="_on_interacted"]
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

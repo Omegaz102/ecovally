@@ -22,7 +22,7 @@ var stamina = 100 #I don't think this needs explaination
 var canRun = true
 var staminaDrain = -10
 
-
+#I LOVE GOONING SO MUCH IT IS SO SIGOY
 # CROUCHING
 var crouching = false
 var target_scale_y = 1.0  # Target scale when not crouching
@@ -75,10 +75,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("run") and !crouching and canRun and is_moving: #Check if running
 		running = true
-		print("hola")
 	else:
 		running = false
-		print("nola")
 		
 	if canRun: #check for no stamina left
 		if stamina <= 0 and canRun:

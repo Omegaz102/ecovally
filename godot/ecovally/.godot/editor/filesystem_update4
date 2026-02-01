@@ -1,2 +1,9 @@
 res://Player/Player.tscn
 res://Player/player.gd
+res://Items/test_gun.tscn
+res://Items/gunBase.gd
+res://Assets/Props/BulletHole/bullet_hole.tscn
+res://Assets/Props/BulletHole/bullet_hole.gd
+res://test_world.tscn
+res://global.gd
+res://main.gd

@@ -1,9 +1,8 @@
 extends Node
 var currentScene: Node
-var player: Node
-var hotBar: Node
 
 func _ready() -> void:
+	Global.root = self
 	loadScene("res://test_world.tscn")
 
 func loadScene(pathToScene: String):
