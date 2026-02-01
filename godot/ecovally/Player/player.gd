@@ -1,21 +1,35 @@
 extends CharacterBody3D
 
 var sens = 0.3	#mouse sensitivity
-var maxSpeed = 3.5 #67 (3.5 feels more weighty -ET)
-var maxRunSpeed = 2 #41
-var stamina = 100 #I don't think this needs explaination
-var running = false # 1 or 0 for is running, not bool because I can avoid an if statement if by making it a number
+
+# MOVEMENT
+var running = false 
 var groundLarp = 30 # Speed of lerping between velocity while on ground
 var airLarp = 2 # air resistance (basically ^ but on ground)
+var maxSpeed = 3.5 #67 (3.5 feels more weighty -ET)
+var maxRunSpeed = 2 #41
+var crouchSpeed = 1.75 # the speed of which you crouch
+
+# VAULTING
 var disableMovment = false
 var vaulting = false
 var vaultTarget = Vector3()
 var vaultStartingPos = Vector3()
-var staminaRegen = 1
-var disablePlatformInherit = false # Self explanatory, if true, you will not rotate with the object below you, if false you will.
 
+# STAMINA
+var staminaRegen = 1
+var stamina = 100 #I don't think this needs explaination
+
+# CROUCHING
+var crouching = false
+var target_scale_y = 1.0  # Target scale when not crouching
+var lerp_speed = 5.0  # Controls how fast the lerp happens
+
+# ROTATION
+var disablePlatformInherit = false # Self explanatory, if true, you will not rotate with the object below you, if false you will.
 var lastFloorTransform: Transform3D
 var lastFloor: Node3D
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -52,16 +66,27 @@ func _physics_process(delta: float) -> void:
 		disableMovment = false
 		vaulting = false
 		$CollisionShape3D.disabled = false
+		
+	
 	
 #	velocity.y += int(is_on_floor()) * int(Input.is_action_just_pressed("jump")) * 6.7 # adds jumping n' shit
 #	velocity.vel += int(is_on_floor()) * int(Input.is_action_just_pressed("jump"))
 	
-	if Input.is_action_just_pressed("run") and stamina >= 3: #Check if running
+	if Input.is_action_just_pressed("run") and stamina >= 3 and !crouching == true: #Check if running
 		running = true
 	if Input.is_action_just_released("run") or stamina <= 0:
 		running = false
 	
-	var draining := int(running and is_moving)
+	if Input.is_action_just_pressed("crouch"):
+		crouching = true
+		$CollisionShape3D.scale.y = 0.5  
+
+	if Input.is_action_just_released("crouch"):
+		crouching = false
+	if not crouching:
+		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, target_scale_y, lerp_speed * delta)
+	
+	var draining := int(running and is_moving and !crouching)
 
 	if stamina <= 5 and staminaRegen == 1:
 		staminaRegen = 0
@@ -79,7 +104,10 @@ func _physics_process(delta: float) -> void:
 	var planarVelocity = Vector2(velocity.x, velocity.z) #seperates planar movment so planar movment doesn't affect jumping/falling
 	var targetVelocity = Vector2() #planar velocity sans lerp
 	if inputVector2D.length() > 0: #new system for handling movement
-		targetVelocity = (maxSpeed + maxRunSpeed * int(running)) * Vector2(inputVector3D.x, inputVector3D.z)  # target speed get's what will be lerped to
+		if crouching == false:
+			targetVelocity = (maxSpeed + maxRunSpeed * int(running)) * Vector2(inputVector3D.x, inputVector3D.z)  # target speed get's what will be lerped to
+		else:
+			targetVelocity = crouchSpeed * Vector2(inputVector3D.x, inputVector3D.z)
 	
 	
 	else:
