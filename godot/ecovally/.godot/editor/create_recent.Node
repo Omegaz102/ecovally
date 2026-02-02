@@ -1,3 +1,6 @@
+Node2D
+Sprite2D
+Button
 MeshInstance3D
 Timer
 Node3D
@@ -10,5 +13,3 @@ Node
 AnimatedSprite2D
 Area3D
 Label
-Container
-CSGPolygon3D

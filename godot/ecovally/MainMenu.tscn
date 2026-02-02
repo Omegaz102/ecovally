@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://7u2us4hnx1tg"]
+
+[ext_resource type="Shader" uid="uid://d4blqh5cx6a2j" path="res://MainMenu.gdshader" id="1_eiy7p"]
+[ext_resource type="Script" uid="uid://r4mym8fnxcg2" path="res://main_menu.gd" id="1_h7a2f"]
+[ext_resource type="Texture2D" uid="uid://dgnoub1u65aq3" path="res://file.svg" id="2_h7a2f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eiy7p"]
+shader = ExtResource("1_eiy7p")
+shader_parameter/direction = Vector2(0, 0)
+shader_parameter/speed = 0.5
+
+[node name="Node2D" type="Node2D" unique_id=248207448]
+script = ExtResource("1_h7a2f")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=606814928]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_eiy7p")
+position = Vector2(960, 532)
+scale = Vector2(1.8671875, 1.0351563)
+texture = ExtResource("2_h7a2f")
+
+[node name="Start2" type="Button" parent="." unique_id=43509863]
+offset_left = 517.0
+offset_top = 191.0
+offset_right = 1338.0
+offset_bottom = 493.0
+text = "Start"
+metadata/_edit_use_anchors_ = true
+
+[node name="Options2" type="Button" parent="." unique_id=1938282979]
+offset_left = 709.0
+offset_top = 559.0
+offset_right = 1191.0
+offset_bottom = 799.0
+text = "Options"
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit2" type="Button" parent="." unique_id=976094230]
+offset_left = 863.0
+offset_top = 830.0
+offset_right = 997.0
+offset_bottom = 883.0
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Start2" to="." method="_on_start_2_pressed"]
+[connection signal="pressed" from="Options2" to="." method="_on_options_2_pressed"]
+[connection signal="pressed" from="Quit2" to="." method="_on_quit_2_pressed"]
