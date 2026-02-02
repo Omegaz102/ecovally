@@ -1,7 +1,10 @@
 extends "res://Interactable.gd"
 var equiped: bool
-@export var magSize: int = 8
-@export var bloom: float = 5
+@export var magSize: int = 0
+@export var bloom: float = 0
+@export var reloadSpeed: float = 0
+@export var TimeBetweenShots: float = 0
+
 @onready var mag = magSize
 
 func _on_interacted() -> void:
@@ -23,12 +26,13 @@ func _on_tree_exited() -> void:
 	equiped = false
 
 func shoot():
+	$RayCast3D.posistion = Vector3()
 	$RayCast3D.rotation = Vector3()
 	$RayCast3D.rotate_x(randf_range(-bloom, bloom))
 	$RayCast3D.rotate_y(randf_range(-bloom, bloom))
-	var BulletHole = preload("res://Assets/Props/BulletHole/bullet_hole.tscn").instantiate()
+	var BulletHole: Node3D = preload("res://Assets/Props/BulletHole/bullet_hole.tscn").instantiate()
 	get_tree().get_root().add_child(BulletHole)
-	
+	BulletHole.global_position = $RayCast3D.get_collision_point()
 	
 	print('shot')
 #	BulletholeInstance.position = $RayCast3D.get_collision_point():
@@ -36,8 +40,6 @@ func shoot():
 
 func  _process(delta: float) -> void:
 	if equiped:
-		if Input.is_action_just_pressed("shoot"):
+		if Input.is_action_pressed("shoot"):
 			if mag > 0:
 				shoot()
-			else:
-				mag = 12

@@ -1,48 +1,45 @@
 [gd_scene format=3 uid="uid://7u2us4hnx1tg"]
 
-[ext_resource type="Shader" uid="uid://d4blqh5cx6a2j" path="res://MainMenu.gdshader" id="1_eiy7p"]
 [ext_resource type="Script" uid="uid://r4mym8fnxcg2" path="res://main_menu.gd" id="1_h7a2f"]
 [ext_resource type="Texture2D" uid="uid://dgnoub1u65aq3" path="res://file.svg" id="2_h7a2f"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_eiy7p"]
-shader = ExtResource("1_eiy7p")
-shader_parameter/direction = Vector2(0, 0)
-shader_parameter/speed = 0.5
-
-[node name="Node2D" type="Node2D" unique_id=248207448]
+[node name="MainMenu" type="Control" unique_id=234910271]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_h7a2f")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=606814928]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_eiy7p")
-position = Vector2(960, 532)
-scale = Vector2(1.8671875, 1.0351563)
-texture = ExtResource("2_h7a2f")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1800023362]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8458363, 0.00024893225, 0.7632283, 1)
 
-[node name="Start2" type="Button" parent="." unique_id=43509863]
-offset_left = 517.0
-offset_top = 191.0
-offset_right = 1338.0
-offset_bottom = 493.0
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=339688864]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=2058629737]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Start"
-metadata/_edit_use_anchors_ = true
+icon = ExtResource("2_h7a2f")
 
-[node name="Options2" type="Button" parent="." unique_id=1938282979]
-offset_left = 709.0
-offset_top = 559.0
-offset_right = 1191.0
-offset_bottom = 799.0
-text = "Options"
-metadata/_edit_use_anchors_ = true
-
-[node name="Quit2" type="Button" parent="." unique_id=976094230]
-offset_left = 863.0
-offset_top = 830.0
-offset_right = 997.0
-offset_bottom = 883.0
-text = "Quit"
-metadata/_edit_use_anchors_ = true
-
-[connection signal="pressed" from="Start2" to="." method="_on_start_2_pressed"]
-[connection signal="pressed" from="Options2" to="." method="_on_options_2_pressed"]
-[connection signal="pressed" from="Quit2" to="." method="_on_quit_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]

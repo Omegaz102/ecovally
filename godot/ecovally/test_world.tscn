@@ -105,4 +105,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018657684, -9.536743e-07, -
 
 [node name="TestGun" parent="." unique_id=2065591760 instance=ExtResource("6_cnaw2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2363644, 0.25, 6.0510864)
-magSize = 0

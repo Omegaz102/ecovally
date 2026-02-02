@@ -9,7 +9,7 @@ size = Vector3(1.5, 0.5, 0.5)
 
 [node name="TestGun" type="StaticBody3D" unique_id=2065591760]
 script = ExtResource("1_276ij")
-magSize = 6
+magSize = 9999
 DisplayName = "Test Gun"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=685811710]
@@ -22,6 +22,9 @@ mesh = SubResource("BoxMesh_73v78")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=977397898]
 target_position = Vector3(0, 0, -20)
+hit_back_faces = false
+
+[node name="Timer" type="Timer" parent="." unique_id=922332872]
 
 [connection signal="Interacted" from="." to="." method="_on_interacted"]
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

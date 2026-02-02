@@ -1,23 +1,9 @@
-extends Node2D
+extends Control
+var time: float
 
+func _physics_process(delta: float) -> void:
+	$ColorRect.color = Color.from_hsv(time / 10, 1, 1)
+	time += delta
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_start_2_pressed() -> void:
+func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://test_world.tscn")
-
-
-func _on_options_2_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_quit_2_pressed() -> void:
-	pass # Replace with function body.

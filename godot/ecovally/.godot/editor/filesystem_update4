@@ -1,4 +1,6 @@
-res://main_menu.gd
+res://Player/Player.tscn
+res://Player/player.gd
+res://Items/test_gun.tscn
+res://Items/gunBase.gd
 res://MainMenu.tscn
-res://MainMenu.gdshader
-res://main.gd
+res://main_menu.gd

@@ -1,6 +1,10 @@
+ColorRect
+Button
+VBoxContainer
+AspectRatioContainer
+CenterContainer
 Node2D
 Sprite2D
-Button
 MeshInstance3D
 Timer
 Node3D
@@ -9,7 +13,3 @@ OmniLight3D
 CollisionShape3D
 StaticBody3D
 Control
-Node
-AnimatedSprite2D
-Area3D
-Label

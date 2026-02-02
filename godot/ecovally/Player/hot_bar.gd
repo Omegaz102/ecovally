@@ -1,6 +1,6 @@
 extends Node3D
 
-var selected: int = 1
+var selected: int = 0
 var hotBar: Array = []
 var size = 3
 
