@@ -1,0 +1,29 @@
+-- List of things to do - feel free to add to this list --
+
+== NOTES ==
+ - If you are going to do somthing, unless you are confident in how to do it watch tutorials, figuring it out leads to bad, un-scaleable code which will hurt us in the long run
+ - Avoid using sprite2d's for UI
+ - Game play wise I am thinking fallout meats cruelty squad, with base building machanics and save areas which will act like dark souls bondfire, this will be where you change out your equipment
+ - We should get the basic game mechanics down before making the world
+
+
+== Major ==
+ - Main Menu
+   * Currently functional, but me or ethan should make a new one with art that looks good
+   * Needs more functionality
+
+ - Settings Menu
+   * Should be it's own .tcsn so it can be instanced at any point
+
+ - Enemys need to be added
+   * Art
+   * Pathfinding
+
+ - Guns Needs work(I, Adam, will do this)
+   * I want them to be punchy; they should conceterable time between shots, Bright flashes which drop the camera's exposre, and screen shake(in short, the shotgun from shotgun roulette)
+
+ - Quest system
+
+ - Dialog
+
+ - Save System
