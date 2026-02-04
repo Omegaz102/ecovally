@@ -1,7 +1,7 @@
 extends "res://Interactable.gd"
 
 var equipped: bool
-var can_shoot: bool = true
+var shotCooldown: bool = false
 
 @export var magSize: int = 0
 @export var bloom: float = 0.05
@@ -19,7 +19,7 @@ func _on_interacted() -> void:
 		get_parent().remove_child(self)
 
 func _on_tree_entered() -> void:
-	if Global.hotBar and get_parent() == Global.hotBar:
+	if get_parent() == Global.hotBar:
 		equipped = true
 		$CollisionShape3D.disabled = true
 	else:
@@ -29,7 +29,7 @@ func _on_tree_exited() -> void:
 	equipped = false
 
 func shoot():
-	can_shoot = false
+	shotCooldown = false
 	mag -= 1 
 	
 	$RayCast3D.position = Vector3.ZERO
@@ -39,27 +39,20 @@ func shoot():
 	
 	$RayCast3D.force_raycast_update()
 	
-	var bulletHole
 	
 	if $RayCast3D.is_colliding():
-		bulletHole = preload("res://Assets/Props/BulletHole/bullet_hole.tscn").instantiate()
+		var bulletHole = preload("res://Assets/Props/BulletHole/bullet_hole.tscn").instantiate()
 		get_tree().root.add_child(bulletHole)
 
-		var pos = $RayCast3D.get_collision_point()
-		var normal = $RayCast3D.get_collision_normal()
+		bulletHole.global_position = $RayCast3D.get_collision_point()
+		bulletHole.global_transform.basis = Basis.looking_at($RayCast3D.get_collision_normal(), Vector3.UP)
 
-		bulletHole.global_position = pos
-		bulletHole.global_transform.basis = Basis.looking_at(-normal, Vector3.UP) # adam this is actually fucking frying me, sorry for touching you code but ts is actually killing me. ive been at this one fucking function for an hour.
-
-
-			
-	
 
 	await get_tree().create_timer(TimeBetweenShots).timeout
-	can_shoot = true
+	shotCooldown = false
 	
 
 func _process(_delta: float) -> void:
 	if equipped:
-		if Input.is_action_pressed("shoot") and mag > 0 and can_shoot:
+		if Input.is_action_pressed("shoot") and mag > 0 and !shotCooldown:
 			shoot()

@@ -5,7 +5,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	scale.x = $Timer.time_left/$Timer.wait_time
-	scale.z = $Timer.time_left/$Timer.wait_time
+	scale.y = $Timer.time_left/$Timer.wait_time
 
 
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dfsvko47gpo5u"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_h7a2f"]
+[ext_resource type="Script" uid="uid://r4mym8fnxcg2" path="res://UI/main_menu.gd" id="1_eiy7p"]
 [ext_resource type="Texture2D" uid="uid://dgnoub1u65aq3" path="res://file.svg" id="2_h7a2f"]
 
 [node name="MainMenu" type="Control" unique_id=234910271]
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_h7a2f")
+script = ExtResource("1_eiy7p")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1800023362]
 layout_mode = 1

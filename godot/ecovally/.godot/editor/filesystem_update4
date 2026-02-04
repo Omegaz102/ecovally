@@ -1,4 +1,5 @@
 res://MainMenu.tscn
+res://UI/main_menu.gd
+res://Assets/Props/BulletHole/bullet_hole.tscn
+res://Assets/Props/BulletHole/bullet_hole.gd
 res://Items/gunBase.gd
-res://main.gd
-res://Player/Player.tscn
