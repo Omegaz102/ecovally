@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dfsvko47gpo5u"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_h7a2f"]
+[ext_resource type="Texture2D" uid="uid://dgnoub1u65aq3" path="res://file.svg" id="2_h7a2f"]
+
+[node name="MainMenu" type="Control" unique_id=234910271]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h7a2f")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1800023362]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8458363, 0.00024893225, 0.7632283, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=339688864]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=2058629737]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Start"
+icon = ExtResource("2_h7a2f")
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]

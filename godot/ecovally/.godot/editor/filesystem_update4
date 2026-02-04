@@ -1,5 +1,4 @@
 res://MainMenu.tscn
-res://UI/MainMenu.tscn
+res://Items/gunBase.gd
 res://main.gd
-res://test_world.tscn
-res://Test/test_world_v_2.tscn
+res://Player/Player.tscn
