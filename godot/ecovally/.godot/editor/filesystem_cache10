@@ -1,11 +1,11 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1770179198
+::res://::1770179254
 default_env.tres::Environment::-1::1769980736::0::1::::<><><>0<>0<><>::
 file.svg::CompressedTexture2D::7608117871126682524::1770001684::1770001693::1::::<><><>0<>0<>d6ad9e7eccc189f685e0504d7794b9e5<>res://.godot/imported/file.svg-34817f322d1feef2661851c86739e0e0.ctex::
 global.gd::GDScript::1922257866040114485::1770002137::0::1::::<>Node<><>0<>0<><>::
 icon.svg::CompressedTexture2D::2951348737266494332::1769814819::1769814819::1::::<><><>0<>0<>5022fada7cb3ea893bab4309d6ca0369<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 Interactable.gd::GDScript::4704446675711041281::1769814818::0::1::::Interactable<>StaticBody3D<><>0<>0<><>::
-main.gd::GDScript::68067633264278486::1770179078::0::1::::<>Node<><>0<>0<><>::
+main.gd::GDScript::68067633264278486::1770179254::0::1::::<>Node<><>0<>0<><>::
 main.tscn::PackedScene::2176971537839431267::1769892627::0::1::::<><><>0<>0<><>::uid://78cf7qf3svu::::res://main.gd
 README.md::TextFile::-1::1769814818::0::1::::<><><>0<>0<><>::
 ::res://addons/::1769981072
@@ -116,8 +116,15 @@ plugin.cfg::TextFile::-1::1769981072::0::1::::<><><>0<>0<><>::
 plugin.gd::GDScript::8613021910089156043::1769981072::0::1::::<>EditorPlugin<><>0<>1<><>::
 progress.png::CompressedTexture2D::8314659574235486316::1769981072::1769982890::1::::<><><>0<>0<>bb00aa2293dd6c3d8ffce6e69613c498<>res://.godot/imported/progress.png-7f475b7e84ff0c0c87db61c1f97b4978.ctex::
 under.png::CompressedTexture2D::7586647404456456032::1769981072::1769982890::1::::<><><>0<>0<>33207a50aa6a3cdf0210df5ea664892a<>res://.godot/imported/under.png-b737211ee1ab1b3c04a4062a02353851.ctex::
-::res://Assets/::1769933209
-::res://Assets/Props/::1769984326
+::res://Assets/::1770179743
+::res://Assets/Environments/::1770179782
+::res://Assets/Environments/TestWorldV2Body/::1770179928
+TestWorldV2.obj::Mesh::7769102179818830464::1770179909::1770179928::1::::<><><>0<>0<>72f488c49a9546a9da1bfecb656ef253<>res://.godot/imported/TestWorldV2.obj-984163e000f0576286f286cdee69a8df.mesh<*>res://.godot/imported/TestWorldV2.obj-984163e000f0576286f286cdee69a8df.mesh::
+::res://Assets/Props/::1770179608
+::res://Assets/Props/BrustalistTable1/::1770179654
+BrutalistTable1.obj::Mesh::2457481577585373618::1770178787::1770179654::1::::<><><>0<>0<>97a1c8b8895317170527b7155673eb43<>res://.godot/imported/BrutalistTable1.obj-fb2ed9b2ace80fab28794cdc2055d011.mesh<*>res://.godot/imported/BrutalistTable1.obj-fb2ed9b2ace80fab28794cdc2055d011.mesh::
+::res://Assets/Props/BrutalistBench1/::1770179654
+BrustalistBench1.obj::Mesh::8553921358061646051::1770178282::1770179654::1::::<><><>0<>0<>ff13ece7caa5292d5de772f04a418d29<>res://.godot/imported/BrustalistBench1.obj-a74d5b330a540f81c56aa18a855fc939.mesh<*>res://.godot/imported/BrustalistBench1.obj-a74d5b330a540f81c56aa18a855fc939.mesh::
 ::res://Assets/Props/BulletHole/::1770002147
 bullet_hole.gd::GDScript::2693482763761672712::1769988633::0::1::::<>Node3D<><>0<>0<><>::
 bullet_hole.tscn::PackedScene::1195394525080015931::1770002147::0::1::::<><><>0<>0<><>::uid://bem0jdlux2my7::::res://Assets/Props/BulletHole/bullet_hole.gd
@@ -127,7 +134,9 @@ test_gun.tscn::PackedScene::2021862643101966675::1770002866::0::1::::<><><>0<>0<
 ::res://Items/TestButton/::1769814818
 testButton.gd::GDScript::1064484929474178421::1769814818::0::1::::<>StaticBody3D<><>0<>0<><>::
 testButton.tscn::PackedScene::2069210826093287941::1769814818::0::1::::<><><>0<>0<><>::uid://pfv58oms14ar::::res://Items/TestButton/testButton.gd
-::res://Materials/::1769814818
+::res://Materials/::1770180261
+::res://Materials/Concrete044DCrunch/::1770180276
+Concrete044DCrunch.png::CompressedTexture2D::667052023341659846::1770180276::1770180446::1::::<><><>0<>0<>a770a89114c5d7d37e7861aaf5ea23a1<>res://.godot/imported/Concrete044DCrunch.png-8b062208e2789be98bd399e264dd5bb6.s3tc.ctex::
 ::res://Materials/proto/::1769814818
 kennyProtoLight.tres::StandardMaterial3D::560446745082914387::1769814818::0::1::::<><><>0<>0<><>::uid://b074wy1k3le4p::::res://addons/kenney_prototype_textures/light/texture_08.png
 ::res://Player/::1770002569
@@ -323,7 +332,8 @@ FPS.png::CompressedTexture2D::2827938837515910472::1769814818::1769814818::1::::
 0058.png::CompressedTexture2D::1426674812482455705::1769814818::1769814818::1::::<><><>0<>0<>6e04db7b8614437064c6c8d3b3a7faf4<>res://.godot/imported/0058.png-51fcbeb476e8837ed71e3399904bdfbd.ctex::
 0059.png::CompressedTexture2D::4399205820185022476::1769814818::1769814818::1::::<><><>0<>0<>37708234aea5281c5030f3c7dede510d<>res://.godot/imported/0059.png-fe9c66b709f126291bdecb9f2f9cfb58.ctex::
 0060.png::CompressedTexture2D::2724301622733940950::1769814818::1769814818::1::::<><><>0<>0<>e0b04f52aa0be7a144f0fecd9368468f<>res://.godot/imported/0060.png-ec43048de70d78ac56ad0ad3e7defbfa.ctex::
-::res://Test/::1770179198
+::res://Test/::1770180370
+test_world_v_2.tscn::PackedScene::1983609157659998623::1770180370::0::1::::<><><>0<>0<><>::uid://dixn8imkgge2k::::res://Assets/Environments/TestWorldV2Body/TestWorldV2.obj<>uid://cg3rp2w8r4feb::::res://Player/Player.tscn
 test_level_grass.png::CompressedTexture2D::3839052175158956095::1770179199::1770179199::1::::<><><>0<>0<>5a2a47e35203e5524d8b49d7b860daf2<>res://.godot/imported/test_level_grass.png-da77b8fbb729b16fb823ea71a9a1b6b0.s3tc.ctex::
 test_level_dirt.png::CompressedTexture2D::2654991674061888679::1770179199::1770179199::1::::<><><>0<>0<>4f23c3ae78c18a01b924bc1adb1929ae<>res://.godot/imported/test_level_dirt.png-6d09510c8310818c8fbab7e2e5b7539a.s3tc.ctex::
 test_level_snow.png::CompressedTexture2D::7244503200278139208::1770179199::1770179199::1::::<><><>0<>0<>af6f96f3ee712f04175a44b817c9b336<>res://.godot/imported/test_level_snow.png-1b5c7f033714f52ad29b390505954296.s3tc.ctex::
@@ -332,7 +342,7 @@ test_level_gray_dark.png::CompressedTexture2D::4827629921290558464::1770179199::
 test_level_gray.png::CompressedTexture2D::6461856818818564464::1770179199::1770179199::1::::<><><>0<>0<>8a2bb33cb590507f9f280617e18c4873<>res://.godot/imported/test_level_gray.png-5f258e529797b9029a4cd541a29c34bc.s3tc.ctex::
 test_level.glb::PackedScene::733784950612585445::1769814819::1770179199::1::::<><><>0<>0<>28060fd75aabe7024985b658d9e5cd8e<>res://.godot/imported/test_level.glb-fb5fd7417890205cc98f6aed240e45ef.scn::uid://cycf3qnvgb5qq::::res://Test/test_level_gray.png<>uid://ca1smhs6r0pw7::::res://Test/test_level_gray_dark.png<>uid://c3emrmoi3py3e::::res://Test/test_level_wood.png<>uid://dbhj56ec2ibpw::::res://Test/test_level_snow.png<>uid://bd3dlbwywwbxf::::res://Test/test_level_dirt.png<>uid://buxwvmp50f2tv::::res://Test/test_level_grass.png
 test_world.tscn::PackedScene::2755737419107963673::1770179198::0::1::::<><><>0<>0<><>::uid://b5a743f3pkpql::::res://textures/brown_photostudio_02_4k.exr<>uid://h8qqgjci2ivr::::res://Materials/proto/kennyProtoLight.tres<>uid://cg3rp2w8r4feb::::res://Player/Player.tscn<>uid://4qlunuaumvpt::::res://Items/TestButton/testButton.tscn<>uid://kpplis3xr7wb::::res://Test/test_level.glb<>uid://32n1um4f0ghv::::res://Items/test_gun.tscn
-::res://textures/::1770179098
+::res://textures/::1770179199
 501st CGI Mk2 Packed_clone.002_BaseColor.png::CompressedTexture2D::1289565667660393698::1769814819::1769814819::1::::<><><>0<>0<>f867314caa07d26466c518881073fe8f<>res://.godot/imported/501st CGI Mk2 Packed_clone.002_BaseColor.png-4e8b03ac20d55b48d2d568151bdf81ee.ctex::
 501st CGI Mk2 Packed_clone.004_BaseColor.png::CompressedTexture2D::463045311134755830::1769814819::1769814819::1::::<><><>0<>0<>a96ad18a220f57427de87ab5f2e60dd6<>res://.godot/imported/501st CGI Mk2 Packed_clone.004_BaseColor.png-058311838c415724b0141629e74cbd41.ctex::
 brown_photostudio_02_4k.exr::CompressedTexture2D::4494082204296315367::1769814819::1770179098::1::::<><><>0<>0<>8ba4c8579c2e047353c36811c7a61fd9<>res://.godot/imported/brown_photostudio_02_4k.exr-d56966fd6a00e8f4cf6319b1246f1b19.bptc.ctex::

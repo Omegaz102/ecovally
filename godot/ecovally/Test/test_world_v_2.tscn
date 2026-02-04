@@ -1,3 +1,64 @@
 [gd_scene format=3 uid="uid://3i40uquyc16j"]
 
+[ext_resource type="Texture2D" uid="uid://jreiqjd8ul3s" path="res://Materials/Concrete044DCrunch/Concrete044DCrunch.png" id="1_pca7g"]
+[ext_resource type="ArrayMesh" uid="uid://dixn8imkgge2k" path="res://Assets/Environments/TestWorldV2Body/TestWorldV2.obj" id="1_pgwc0"]
+[ext_resource type="PackedScene" uid="uid://cg3rp2w8r4feb" path="res://Player/Player.tscn" id="2_1ivd4"]
+
+[sub_resource type="Environment" id="Environment_1ivd4"]
+background_mode = 1
+background_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+tonemap_mode = 4
+volumetric_fog_density = 0.01
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pca7g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pca7g"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5nqn0"]
+material = SubResource("StandardMaterial3D_pca7g")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5nqn0"]
+albedo_texture = ExtResource("1_pca7g")
+uv1_triplanar = true
+texture_filter = 0
+
 [node name="TestWorldV2" type="Node3D" unique_id=815216270]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=425837651]
+environment = SubResource("Environment_1ivd4")
+
+[node name="CharacterBody3D" parent="." unique_id=1504471152 instance=ExtResource("2_1ivd4")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1881126137]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5211406, -2.2911286)
+light_energy = 17.0
+shadow_enabled = true
+omni_range = 44.536274
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=970765155]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2142586415]
+shape = SubResource("WorldBoundaryShape3D_pca7g")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=1339081071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5, 0)
+size = Vector3(40, 29, 40)
+
+[node name="LightmapProbe" type="LightmapProbe" parent="ReflectionProbe" unique_id=1348573418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
+
+[node name="LightmapGI" type="LightmapGI" parent="." unique_id=258881754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+quality = 3
+supersampling = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LightmapGI" unique_id=428219161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.5, 0)
+mesh = SubResource("BoxMesh_5nqn0")
+
+[node name="Body" type="MeshInstance3D" parent="LightmapGI" unique_id=170639589]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -7, 0)
+material_override = SubResource("StandardMaterial3D_5nqn0")
+mesh = ExtResource("1_pgwc0")
+skeleton = NodePath("../..")
