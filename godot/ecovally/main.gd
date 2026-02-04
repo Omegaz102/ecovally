@@ -3,7 +3,7 @@ var currentScene: Node
 
 func _ready() -> void:
 	Global.root = self
-	loadScene("res://MainMenu.tscn")
+	loadScene("res://UI/MainMenu.tscn")
 
 func loadScene(pathToScene: String):
 	if currentScene != null:

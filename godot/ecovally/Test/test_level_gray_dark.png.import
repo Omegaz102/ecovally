@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5a743f3pkpql"
-path.bptc="res://.godot/imported/brown_photostudio_02_4k.exr-80de3861b2807dc9a22bffdb56587d4f.bptc.ctex"
+uid="uid://ca1smhs6r0pw7"
+path.s3tc="res://.godot/imported/test_level_gray_dark.png-2eb3529e2ad9aaec0404f447b30f862e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "a7fc0f7705421274975c024b8e83afd3"
+}
 
 [deps]
 
-source_file="res://brown_photostudio_02_4k.exr"
-dest_files=["res://.godot/imported/brown_photostudio_02_4k.exr-80de3861b2807dc9a22bffdb56587d4f.bptc.ctex"]
+source_file="res://Test/test_level_gray_dark.png"
+dest_files=["res://.godot/imported/test_level_gray_dark.png-2eb3529e2ad9aaec0404f447b30f862e.s3tc.ctex"]
 
 [params]
 
