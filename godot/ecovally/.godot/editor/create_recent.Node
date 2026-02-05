@@ -1,10 +1,10 @@
+OmniLight3D
 CollisionShape3D
 StaticBody3D
 MeshInstance3D
 LightmapProbe
 LightmapGI
 ReflectionProbe
-OmniLight3D
 WorldEnvironment
 ColorRect
 Button

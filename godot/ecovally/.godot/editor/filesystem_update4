@@ -1,5 +1,1 @@
-res://timeline.dtl
-res://Player/Player.tscn
-res://Test/test_world.tscn
-res://Npc_Dialouge_test.tscn
-res://npc_dialouge_test.gd
+res://Items/test_gun.tscn

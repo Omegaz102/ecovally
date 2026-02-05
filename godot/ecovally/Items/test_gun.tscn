@@ -10,7 +10,7 @@ size = Vector3(1.5, 0.5, 0.5)
 [node name="TestGun" type="StaticBody3D" unique_id=2065591760]
 script = ExtResource("1_276ij")
 magSize = 9999
-ShotsPerSecond = 5.0
+ShotsPerSecond = 2.0
 DisplayName = "Test Gun"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=685811710]
