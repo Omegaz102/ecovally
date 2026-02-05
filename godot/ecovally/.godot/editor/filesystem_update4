@@ -1,5 +1,5 @@
-res://MainMenu.tscn
-res://UI/main_menu.gd
-res://Assets/Props/BulletHole/bullet_hole.tscn
-res://Assets/Props/BulletHole/bullet_hole.gd
-res://Items/gunBase.gd
+res://timeline.dtl
+res://Player/Player.tscn
+res://Test/test_world.tscn
+res://Npc_Dialouge_test.tscn
+res://npc_dialouge_test.gd
