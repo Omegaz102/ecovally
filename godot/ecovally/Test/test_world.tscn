@@ -105,7 +105,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5243347, 0.49999952, 3.527
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018657684, -9.536743e-07, -0.008073807)
 
 [node name="TestGun" parent="." unique_id=2065591760 instance=ExtResource("6_cnaw2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2363644, 0.25, 6.0510864)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2363644, 0.55, 6.0510864)
 
 [node name="StaticBody3D3" parent="." unique_id=1632382625 instance=ExtResource("7_874eo")]
 transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 0, 0, 7)

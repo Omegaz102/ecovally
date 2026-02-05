@@ -1,14 +1,14 @@
 extends "res://Interactable.gd"
 
 var equipped: bool
-var shotCooldown: bool = false
 
 @export var magSize: int = 0
 @export var bloom: float = 0.05
 @export var reloadSpeed: float = 1.0
-@export var TimeBetweenShots: float = 0.1
+@export var ShotsPerSecond: float = 60
 
 @onready var mag = magSize
+var shotCooldown: float
 
 func _on_interacted() -> void:
 	Global.hotBar.addItem(self)
@@ -29,7 +29,6 @@ func _on_tree_exited() -> void:
 	equipped = false
 
 func shoot():
-	shotCooldown = false
 	mag -= 1 
 	
 	$RayCast3D.position = Vector3.ZERO
@@ -38,7 +37,7 @@ func shoot():
 	$RayCast3D.rotate_y(randf_range(-bloom, bloom))
 	
 	$RayCast3D.force_raycast_update()
-	
+	shotCooldown += 1 / ShotsPerSecond
 	
 	if $RayCast3D.is_colliding():
 		var bulletHole = preload("res://Assets/Props/BulletHole/bullet_hole.tscn").instantiate()
@@ -46,13 +45,13 @@ func shoot():
 
 		bulletHole.global_position = $RayCast3D.get_collision_point()
 		bulletHole.global_transform.basis = Basis.looking_at($RayCast3D.get_collision_normal(), Vector3.UP)
-
-
-	await get_tree().create_timer(TimeBetweenShots).timeout
-	shotCooldown = false
-	
-
 func _process(_delta: float) -> void:
+	if shotCooldown > 0:
+		shotCooldown -= _delta
+	$SubViewportContainer/SubViewport/GunCam.global_transform = Global.camera.global_transform
 	if equipped:
-		if Input.is_action_pressed("shoot") and mag > 0 and !shotCooldown:
+		$MeshInstance3D.layers = 2
+		while Input.is_action_pressed("shoot") and mag > 0 and shotCooldown <= 0:
 			shoot()
+	else:
+		$MeshInstance3D.layers = 1
