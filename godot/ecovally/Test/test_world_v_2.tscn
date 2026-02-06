@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://jreiqjd8ul3s" path="res://Materials/Concrete044DCrunch/Concrete044DCrunch.png" id="1_pca7g"]
 [ext_resource type="ArrayMesh" uid="uid://dixn8imkgge2k" path="res://Assets/Environments/TestWorldV2Body/TestWorldV2.obj" id="1_pgwc0"]
-[ext_resource type="PackedScene" uid="uid://cg3rp2w8r4feb" path="res://Player/Player.tscn" id="2_1ivd4"]
+[ext_resource type="PackedScene" uid="uid://prd2mftate72" path="res://Test/PlayerV2/player_v_2.tscn" id="3_pca7g"]
 
 [sub_resource type="Environment" id="Environment_1ivd4"]
 background_mode = 1
@@ -28,12 +28,9 @@ texture_filter = 0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=425837651]
 environment = SubResource("Environment_1ivd4")
 
-[node name="CharacterBody3D" parent="." unique_id=1504471152 instance=ExtResource("2_1ivd4")]
-
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1881126137]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5211406, -2.2911286)
 light_energy = 17.0
-shadow_enabled = true
 omni_range = 44.536274
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=970765155]
@@ -62,3 +59,10 @@ transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -7, 0)
 material_override = SubResource("StandardMaterial3D_5nqn0")
 mesh = ExtResource("1_pgwc0")
 skeleton = NodePath("../..")
+
+[node name="PlayerV2" parent="." unique_id=23940295 instance=ExtResource("3_pca7g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79006, 0.96454954, 4.761162)
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+can_sleep = false
+linear_damp = 0.25

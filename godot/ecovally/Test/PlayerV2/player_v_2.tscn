@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://prd2mftate72"]
+
+[ext_resource type="Script" uid="uid://chtu3l0kgugcd" path="res://Test/PlayerV2/player_v_2.gd" id="1_0gv23"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nmscw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0gv23"]
+
+[node name="PlayerV2" type="RigidBody3D" unique_id=23940295]
+script = ExtResource("1_0gv23")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=66261161]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=1237573350]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1033877770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_nmscw")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=485074509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_0gv23")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=882404516]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.1, 0)
+target_position = Vector3(0, -0.5, 0)
+hit_back_faces = false
