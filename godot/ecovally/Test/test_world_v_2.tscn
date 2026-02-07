@@ -38,31 +38,19 @@ omni_range = 44.536274
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2142586415]
 shape = SubResource("WorldBoundaryShape3D_pca7g")
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=1339081071]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5, 0)
-size = Vector3(40, 29, 40)
-
-[node name="LightmapProbe" type="LightmapProbe" parent="ReflectionProbe" unique_id=1348573418]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
-
-[node name="LightmapGI" type="LightmapGI" parent="." unique_id=258881754]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
-quality = 3
-supersampling = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LightmapGI" unique_id=428219161]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.5, 0)
-mesh = SubResource("BoxMesh_5nqn0")
-
-[node name="Body" type="MeshInstance3D" parent="LightmapGI" unique_id=170639589]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -7, 0)
-material_override = SubResource("StandardMaterial3D_5nqn0")
-mesh = ExtResource("1_pgwc0")
-skeleton = NodePath("../..")
-
 [node name="PlayerV2" parent="." unique_id=23940295 instance=ExtResource("3_pca7g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79006, 0.96454954, 4.761162)
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 can_sleep = false
 linear_damp = 0.25
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=428219161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_5nqn0")
+skeleton = NodePath("")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=170639589]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_5nqn0")
+mesh = ExtResource("1_pgwc0")

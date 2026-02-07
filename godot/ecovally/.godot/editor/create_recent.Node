@@ -1,8 +1,8 @@
+MeshInstance3D
 RayCast3D
 Node3D
 Camera3D
 CollisionShape3D
-MeshInstance3D
 RigidBody3D
 OmniLight3D
 StaticBody3D
@@ -12,4 +12,3 @@ ReflectionProbe
 WorldEnvironment
 ColorRect
 Button
-VBoxContainer
