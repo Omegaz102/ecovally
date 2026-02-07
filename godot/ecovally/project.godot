@@ -22,7 +22,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://2nfkn8hftgxh"
-Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
 
@@ -42,7 +41,7 @@ window/size/mode=3
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/ridiculous_coding/plugin.cfg")
 
 [input]
 

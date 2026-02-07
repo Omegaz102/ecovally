@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://3i40uquyc16j"]
 
-[ext_resource type="Texture2D" uid="uid://jreiqjd8ul3s" path="res://Materials/Concrete044DCrunch/Concrete044DCrunch.png" id="1_pca7g"]
-[ext_resource type="ArrayMesh" uid="uid://dixn8imkgge2k" path="res://Assets/Environments/TestWorldV2Body/TestWorldV2.obj" id="1_pgwc0"]
 [ext_resource type="PackedScene" uid="uid://prd2mftate72" path="res://Test/PlayerV2/player_v_2.tscn" id="3_pca7g"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pgwc0"]
+sky_top_color = Color(0.35032377, 0.43960616, 0.67056155, 1)
+sky_horizon_color = Color(0.5908397, 0.6606252, 0.762057, 1)
+ground_bottom_color = Color(0.52, 0.52, 0.52, 1)
+ground_horizon_color = Color(0.5975532, 0.6057864, 0.6222556, 1)
+ground_curve = 0.0039229356
+
+[sub_resource type="Sky" id="Sky_1ivd4"]
+sky_material = SubResource("ProceduralSkyMaterial_pgwc0")
+
 [sub_resource type="Environment" id="Environment_1ivd4"]
-background_mode = 1
-background_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+background_mode = 2
+sky = SubResource("Sky_1ivd4")
 tonemap_mode = 4
 volumetric_fog_density = 0.01
 
@@ -18,20 +26,13 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_5nqn0"]
 material = SubResource("StandardMaterial3D_pca7g")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5nqn0"]
-albedo_texture = ExtResource("1_pca7g")
-uv1_triplanar = true
-texture_filter = 0
+[sub_resource type="PlaneMesh" id="PlaneMesh_pca7g"]
+size = Vector2(500, 500)
 
 [node name="TestWorldV2" type="Node3D" unique_id=815216270]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=425837651]
 environment = SubResource("Environment_1ivd4")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1881126137]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5211406, -2.2911286)
-light_energy = 17.0
-omni_range = 44.536274
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=970765155]
 
@@ -42,15 +43,11 @@ shape = SubResource("WorldBoundaryShape3D_pca7g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79006, 0.96454954, 4.761162)
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-can_sleep = false
-linear_damp = 0.25
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=428219161]
+[node name="cube" type="MeshInstance3D" parent="." unique_id=428219161]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("BoxMesh_5nqn0")
 skeleton = NodePath("")
 
-[node name="Body" type="MeshInstance3D" parent="." unique_id=170639589]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_5nqn0")
-mesh = ExtResource("1_pgwc0")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1270519715]
+mesh = SubResource("PlaneMesh_pca7g")

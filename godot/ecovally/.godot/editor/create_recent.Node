@@ -1,8 +1,10 @@
+Path2D
+Camera3D
 MeshInstance3D
+CollisionShape3D
+CharacterBody3D
 RayCast3D
 Node3D
-Camera3D
-CollisionShape3D
 RigidBody3D
 OmniLight3D
 StaticBody3D
@@ -11,4 +13,3 @@ LightmapGI
 ReflectionProbe
 WorldEnvironment
 ColorRect
-Button
