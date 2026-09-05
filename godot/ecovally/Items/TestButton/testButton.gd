@@ -1,4 +1,4 @@
-extends "res://Interactable.gd"
+extends Interactable
 
 var spinning = false
 func _on_interacted() -> void:
