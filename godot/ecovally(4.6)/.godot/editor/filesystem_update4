@@ -1,0 +1,5 @@
+res://Items/TestButton/testButton.tscn
+res://Interactable.gd
+res://Items/TestButton/testButton.gd
+res://Player/interactionRaycast.gd
+res://Player/Player.tscn

@@ -1,4 +1,6 @@
 ColorRect
+RichTextLabel
+Control
 CanvasLayer
 Path2D
 Camera3D
@@ -10,6 +12,3 @@ Node3D
 RigidBody3D
 OmniLight3D
 StaticBody3D
-LightmapProbe
-LightmapGI
-ReflectionProbe

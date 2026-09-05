@@ -371,7 +371,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("61_xe2ce")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -745,7 +745,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("183_11ucs")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 16.0
 }]
@@ -870,3 +870,41 @@ sprite_frames = SubResource("SpriteFrames_uyt7w")
 autoplay = "default"
 offset = Vector2(0, -128)
 flip_h = true
+
+[node name="textBox" type="Control" parent="UI" unique_id=1718800919]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/textBox" unique_id=860148139]
+clip_contents = false
+layout_mode = 0
+offset_left = -463.0
+offset_top = -63.0
+offset_right = 503.0
+offset_bottom = 103.0
+mouse_filter = 2
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="UI/textBox/RichTextLabel" unique_id=2143199423]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
