@@ -184,6 +184,7 @@
 [ext_resource type="Texture2D" uid="uid://c75ckxiqfue5d" path="res://Player/UI/ItemDisplay/Render/0118.png" id="181_30f1n"]
 [ext_resource type="Texture2D" uid="uid://b5dgcnmew5kny" path="res://Player/UI/ItemDisplay/Render/0119.png" id="182_e3axp"]
 [ext_resource type="Texture2D" uid="uid://ctjvaq3nxvac8" path="res://Player/UI/ItemDisplay/Render/0120.png" id="183_11ucs"]
+[ext_resource type="Script" uid="uid://b5dsnsjm5mwsv" path="res://Player/text_box.gd" id="185_5c7o4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kne1u"]
 height = 1.8
@@ -878,29 +879,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -516.0
+offset_top = -100.0
+offset_right = 516.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+script = ExtResource("185_5c7o4")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/textBox" unique_id=860148139]
-clip_contents = false
-layout_mode = 0
-offset_left = -463.0
-offset_top = -63.0
-offset_right = 503.0
-offset_bottom = 103.0
-mouse_filter = 2
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="UI/textBox/RichTextLabel" unique_id=2143199423]
+[node name="ColorRect" type="ColorRect" parent="UI/textBox" unique_id=2143199423]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -908,3 +898,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/textBox" unique_id=860148139]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "hello"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
