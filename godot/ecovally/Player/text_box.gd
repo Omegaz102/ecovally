@@ -30,7 +30,7 @@ func say(text):
 	for n in words:
 		i += 1
 		if pieceOfText.length() + n.length() + 1 > MAX_CHARACTERS:
-			output(pieceOfText)
+			output(pieceOfText) 
 			pieceOfText = n
 		else:
 			pieceOfText += " " + n
