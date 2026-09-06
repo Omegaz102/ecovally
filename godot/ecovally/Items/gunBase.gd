@@ -64,6 +64,7 @@ func shoot() -> void:
 
 func reload() -> void:
 	# Don't reload if already reloading or the magazine is full
+	print("reloading")
 	if reloading or mag >= magSize:
 		return
 
@@ -90,7 +91,8 @@ func _process(_delta: float) -> void:
 			reload()
 
 		# Shooting
-		while Input.is_action_pressed("shoot") and mag > 0 and shotCooldown <= 0 and not reloading:
+		while Input.is_action_pressed("shoot") and mag > 0 and shotCooldown <= 0 and (not reloading):
 			shoot()
+			print("shoot")
 	else:
 		$MeshInstance3D.layers = 1
