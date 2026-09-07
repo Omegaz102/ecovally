@@ -185,6 +185,7 @@
 [ext_resource type="Texture2D" uid="uid://b5dgcnmew5kny" path="res://Player/UI/ItemDisplay/Render/0119.png" id="182_e3axp"]
 [ext_resource type="Texture2D" uid="uid://ctjvaq3nxvac8" path="res://Player/UI/ItemDisplay/Render/0120.png" id="183_11ucs"]
 [ext_resource type="Script" uid="uid://b5dsnsjm5mwsv" path="res://Player/text_box.gd" id="185_5c7o4"]
+[ext_resource type="Script" uid="uid://cjia1ca52y2ed" path="res://Player/item_icon.gd" id="185_pjxrc"]
 [ext_resource type="Texture2D" uid="uid://dv3nriooe6m50" path="res://Player/UI/textBox/render/dialogueBox0001.png" id="186_0frrm"]
 [ext_resource type="Texture2D" uid="uid://mvj47syc8vnx" path="res://Player/UI/textBox/render/dialogueBox0002.png" id="187_pjxrc"]
 [ext_resource type="Texture2D" uid="uid://blnttv2j7qwh1" path="res://Player/UI/textBox/render/dialogueBox0003.png" id="188_0qrrv"]
@@ -1359,6 +1360,12 @@ sprite_frames = SubResource("SpriteFrames_uyt7w")
 autoplay = "default"
 offset = Vector2(0, -128)
 flip_h = true
+
+[node name="ItemIcon" type="TextureRect" parent="UI/ItemDisplay" unique_id=1759488722]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("185_pjxrc")
 
 [node name="textBox" type="Control" parent="UI" unique_id=1718800919]
 unique_name_in_owner = true

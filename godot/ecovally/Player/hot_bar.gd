@@ -18,7 +18,7 @@ func addItem(item: Node) -> void:
 		if hotBar[i] == null:
 			equipped = true
 			hotBar[i] = item
-			print("Added item: peepeepoopoo", hotBar[i])
+			print("Added item: ", hotBar[i])
 			break
 
 	if not equipped:
@@ -37,14 +37,9 @@ func changeItem(item: Node) -> void:
 func updateHotbarDisplay() -> void:
 	if hotBar[selected] != null:
 		pass
-		# Get the item's icon
-#		itemIcon.texture = hotBar[selected].itemIcon
-#		itemIcon.visible = true
+
 	else:
 		pass
-		# No item in this slot
-#		itemIcon.texture = null
-#		itemIcon.visible = false
 
 func selectNextItem() -> void:
 	selected += 1
