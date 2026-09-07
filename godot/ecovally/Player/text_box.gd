@@ -1,15 +1,16 @@
 extends Control
 
 @onready var display: RichTextLabel = $RichTextLabel
-@onready var backdrop: ColorRect = $ColorRect
+@onready var backdrop: AnimatedSprite2D = $AnimatedSprite2D
 var queue: Array
 const MAX_CHARACTERS: int = 150
 
 func _ready() -> void:
-	display.visible=false
-	backdrop.visible=false
+	display.visible = false
+	backdrop.visible = false
+	Global.textBox = self
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if queue.size() > 0:
 		display.text = queue[0]
 		display.visible=true

@@ -25,5 +25,6 @@ func _physics_process(delta: float) -> void:
 	var planarInput = Vector2(inputVector3D.x, inputVector3D.z)
 	
 	planarVelocity = planarVelocity.normalized() * planarVelocity.length() * (planarVelocity.dot(planarInput)) 
+	velocity = Vector3(planarVelocity.x, velocity.y, planarVelocity.y)
 	
 	move_and_slide()
