@@ -6,6 +6,7 @@ var size = 3
 @onready var itemIcon: TextureRect = %ItemIcon
 
 func _ready() -> void:
+	print(itemIcon)
 	Global.hotBar = self
 	hotBar.resize(size)
 	updateHotbarDisplay()
@@ -35,13 +36,15 @@ func changeItem(item: Node) -> void:
 
 func updateHotbarDisplay() -> void:
 	if hotBar[selected] != null:
+		pass
 		# Get the item's icon
-		itemIcon.texture = hotBar[selected].itemIcon
-		itemIcon.visible = true
+#		itemIcon.texture = hotBar[selected].itemIcon
+#		itemIcon.visible = true
 	else:
+		pass
 		# No item in this slot
-		itemIcon.texture = null
-		itemIcon.visible = false
+#		itemIcon.texture = null
+#		itemIcon.visible = false
 
 func selectNextItem() -> void:
 	selected += 1
