@@ -3,8 +3,8 @@ extends CharacterBody3D
 
 signal Interacted()
 @export var DisplayName = "[NPC]"
-@export var idleText:Array[String] = ["sup"]
-var speachQueue:Dictionary = {"funFact":"Fun fact, you can interact with the cube to my left. Give it a spin and come back to me when you're done."}
+@export var idleText:Array = ["sup", ["hello", "this is a test"]]
+var speachQueue:Dictionary = {"funFact":"Fun fact, you can interact with the cube to my left. Give it a spin and come back to me when you're done.", "arrayTest":["this is an array test", "this dialogue can be ignored", "each line is it's own index in an array wich is being passed to the say function"]}
 
 signal spoke(textID)
 
@@ -18,5 +18,8 @@ func interact():
 		print(speachQueue.erase(speachQueue.keys()[0]))
 	
 func say(text):
-	print(text)
-	Global.textBox.say(text)
+	if text is String:
+		Global.textBox.say(text)
+	elif text is Array:
+		for i in text:
+			say(i)
