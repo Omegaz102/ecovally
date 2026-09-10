@@ -9,7 +9,7 @@
 [node name="testNPC" type="CharacterBody3D" unique_id=668484702]
 script = ExtResource("1_4wlj2")
 DisplayName = "testNPC"
-idleText = Array[String](["sup", "hola", "my name is adrian christian hernandez", "PPPPPIIICCCCKLLLLLEEE RRRRRIIIIIICCCKKKK", "my dih hurts"])
+idleText = ["sup", ["hello", "this is a test"], ["hey!!!", "you mad ugly frfr"], "pickle rick"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1845621369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
