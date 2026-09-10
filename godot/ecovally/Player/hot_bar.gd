@@ -3,7 +3,7 @@ extends Node3D
 var selected: int = 0
 var hotBar: Array = []
 var size = 3
-@onready var itemIcon: TextureRect = %ItemIcon
+@onready var itemIcon: TextureRect = $"../../../UI/ItemDisplay/ItemIcon"
 
 func _ready() -> void:
 	print(itemIcon)
@@ -19,6 +19,7 @@ func addItem(item: Node) -> void:
 			equipped = true
 			hotBar[i] = item
 			print("Added item: ", hotBar[i])
+		
 			break
 
 	if not equipped:
@@ -36,10 +37,9 @@ func changeItem(item: Node) -> void:
 
 func updateHotbarDisplay() -> void:
 	if hotBar[selected] != null:
-		pass
-
+		itemIcon.texture = hotBar[selected].itemIcon
 	else:
-		pass
+		itemIcon.texture = null
 
 func selectNextItem() -> void:
 	selected += 1

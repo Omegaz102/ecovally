@@ -8,7 +8,7 @@ var reloading: bool = false
 @export var reloadSpeed: float = 1.0
 @export var ShotsPerSecond: float = 60.0
 
-@export var itemIcon: Texture2D #Hotbar 
+@export var itemIcon: CompressedTexture2D #Hotbar 
 
 @onready var mag: int = magSize
 var shotCooldown: float = 0.0
