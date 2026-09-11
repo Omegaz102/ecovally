@@ -8,8 +8,7 @@ func _ready() -> void:
 func loadScene(pathToScene: String):
 	if currentScene != null:
 		currentScene.queue_free()
-	var newScene: PackedScene = load(pathToScene)
-	currentScene = newScene.instantiate()
+	currentScene = load(pathToScene).instantiate()
 	add_child(currentScene)
 
 func _unhandled_input(event: InputEvent) -> void:

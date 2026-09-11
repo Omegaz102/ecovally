@@ -11,7 +11,7 @@ var maxRunSpeed = 2 #41
 var crouchSpeed = 1.75 # the speed of which you crouch
 
 # VAULTING
-var disableMovment = false
+@export var disableMovment = false
 var vaulting = false
 var vaultTarget = Vector3()
 var vaultStartingPos = Vector3()
