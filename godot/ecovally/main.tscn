@@ -4,3 +4,5 @@
 
 [node name="Main" type="Node" unique_id=1017395401]
 script = ExtResource("1_h2yge")
+
+[node name="quest man" type="Node" parent="." unique_id=955895928]

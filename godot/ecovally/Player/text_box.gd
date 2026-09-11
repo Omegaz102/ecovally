@@ -6,20 +6,17 @@ var queue: Array
 const MAX_CHARACTERS: int = 150
 
 func _ready() -> void:
-	display.visible = false
-	backdrop.visible = false
 	Global.textBox = self
-
+	hideVisual.call_deferred()
+	
 func _physics_process(_delta: float) -> void:
 	if queue.size() > 0:
 		display.text = queue[0]
-		display.visible=true
-		backdrop.visible=true
+		showVisual()
 		if Input.is_action_just_pressed("shoot"):
 			queue.remove_at(0)
 			if queue.size() == 0:
-				display.visible = false
-				backdrop.visible = false
+				hideVisual()
 
 func say(text):
 	var pieceOfText: String
@@ -37,3 +34,13 @@ func say(text):
 	
 func output(text:String):
 	queue.append(text)
+
+func hideVisual():
+	display.visible = false
+	backdrop.visible = false
+	Global.player.disableMovment=false
+	
+func showVisual():
+	display.visible=true
+	backdrop.visible=true
+	Global.player.disableMovment=true
