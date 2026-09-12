@@ -1,10 +1,13 @@
 extends Interactable
 
 var spinning = false
+
+func _ready() -> void:
+	Global.spinCube = self
+
 func _on_interacted() -> void:
 	if spinning == false:
 		spinning = true
-		%testNPC.speechQueue["spined"] = "wowzers, you're good at spining that thing"
 	else:
 		spinning = false
 	

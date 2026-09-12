@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d4kbatyj0o5wj"]
 
-[ext_resource type="Script" uid="uid://b2v85m8g73bpl" path="res://NPC/NPC.gd" id="1_4wlj2"]
+[ext_resource type="Script" uid="uid://c603bh5r77l3i" path="res://NPC/test_npc.gd" id="1_4wlj2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0ox0n"]
 
@@ -8,8 +8,6 @@
 
 [node name="testNPC" type="CharacterBody3D" unique_id=668484702]
 script = ExtResource("1_4wlj2")
-DisplayName = "testNPC"
-idleText = ["sup", ["hello", "this is a test"], ["hey!!!", "you mad ugly frfr"], "pickle rick"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1845621369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
