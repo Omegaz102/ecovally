@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b36jdpud8brd5"]
+
+[ext_resource type="Script" uid="uid://bfsvpjjucl2og" path="res://props/complex/Destruct/Destruct Box/destruct_box.gd" id="1_arl2x"]
+[ext_resource type="Script" uid="uid://0jhe65igb74i" path="res://GameplayScripts/health.gd" id="1_grsxc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_arl2x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q5yky"]
+
+[node name="DestructBox" type="StaticBody3D" unique_id=684216998]
+script = ExtResource("1_arl2x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1863719623]
+mesh = SubResource("BoxMesh_arl2x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=927968524]
+shape = SubResource("BoxShape3D_q5yky")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1254848169]
+script = ExtResource("1_grsxc")
+max_health = 50.0
+metadata/_custom_type_script = "uid://0jhe65igb74i"
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]

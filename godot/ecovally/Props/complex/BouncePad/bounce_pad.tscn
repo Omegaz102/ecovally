@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b6i2deqxt4mil"]
+
+[ext_resource type="Script" uid="uid://ckxnnqbpn7x5g" path="res://props/complex/BouncePad/BouncePad.gd" id="1_oxlw3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5x6c4"]
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxlw3"]
+albedo_color = Color(0.45882353, 0.70980394, 0, 1)
+emission = Color(0.45882353, 0.70980394, 0, 1)
+emission_energy_multiplier = 8.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_5x6c4"]
+material = SubResource("StandardMaterial3D_oxlw3")
+size = Vector3(1, 0.193, 1)
+
+[node name="BouncePad" type="Node3D" unique_id=2035985895]
+script = ExtResource("1_oxlw3")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=404460399]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1343043609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100000024, 0)
+shape = SubResource("BoxShape3D_5x6c4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=36008924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.099999994, 0)
+mesh = SubResource("BoxMesh_5x6c4")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bjjvvwcxbo587"]
+
+[ext_resource type="Script" uid="uid://bhm6th45almhq" path="res://NPC/nav_npc.gd" id="1_ws0pl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dayg5"]
+albedo_color = Color(0.6916874, 0, 0.04232677, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4ojjy"]
+material = SubResource("StandardMaterial3D_dayg5")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7md1k"]
+
+[node name="NavNPC" type="CharacterBody3D" unique_id=321841919]
+script = ExtResource("1_ws0pl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1635289107]
+mesh = SubResource("CapsuleMesh_4ojjy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=682065886]
+shape = SubResource("CapsuleShape3D_7md1k")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=590511861]
+debug_enabled = true
+debug_path_custom_color = Color(1, 1, 0, 1)
