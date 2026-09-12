@@ -4,7 +4,7 @@ var spinning = false
 func _on_interacted() -> void:
 	if spinning == false:
 		spinning = true
-		%testNPC.speachQueue["spined"] = "wowzers, you're good at spining that thing"
+		%testNPC.speechQueue["spined"] = "wowzers, you're good at spining that thing"
 	else:
 		spinning = false
 	
