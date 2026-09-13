@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://2nfkn8hftgxh"
+SaveManager="*uid://b56prscm1p10a"
 
 [dialogic]
 
