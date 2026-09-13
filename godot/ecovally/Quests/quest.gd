@@ -1,4 +1,5 @@
 extends Node
+class_name Quest
 
 var title:String = "Untitled Quest"
 var description:String = "the description for the quest has yet to be set"
@@ -12,8 +13,11 @@ func complete():
 	Global.questMan.completedQuests.append(name)
 	queue_free()
 
-func sayAwait(npc:NPC, text):
-	npc.say(text)
+func sayAwait(npc:NPC, key, text):
+	npc.queueSpeech(key, text)
 	while true:
-		var key = NPC.spoke
+		var spokenKey =  await npc.spoke
+		print(spokenKey)
+		if spokenKey == key:
+			return
 	

@@ -1,4 +1,5 @@
 extends Node
+class_name Main
 var currentScene: Node
 
 func _ready() -> void:
@@ -6,7 +7,7 @@ func _ready() -> void:
 	loadScene("res://UI/MainMenu.tscn")
 
 func loadScene(pathToScene: String):
-	if currentScene != null:
+	if currentScene:
 		currentScene.queue_free()
 	currentScene = load(pathToScene).instantiate()
 	add_child(currentScene)

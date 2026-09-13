@@ -4,7 +4,7 @@ extends CharacterBody3D
 signal Interacted()
 @export var DisplayName = "[NPC]"
 @export var idleText:Array = ["sup", ["hello", "this is a test"]]
-var speechQueue:Dictionary = {"funFact":"Fun fact, you can interact with the cube to my left. Give it a spin and come back to me when you're done.", "arrayTest":["this is an array test", "this dialogue can be ignored", "each line is it's own index in an array wich is being passed to the say function"]}
+var speechQueue:Dictionary = {}
 
 signal spoke(key)
 
