@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://32n1um4f0ghv" path="res://Items/test_gun.tscn" id="6_cnaw2"]
 [ext_resource type="PackedScene" uid="uid://d4kbatyj0o5wj" path="res://NPC/testNPC.tscn" id="7_874eo"]
 [ext_resource type="PackedScene" uid="uid://b36jdpud8brd5" path="res://Props/complex/Destruct/Destruct Box/destruct_box.tscn" id="8_1h53d"]
+[ext_resource type="Script" uid="uid://b2v85m8g73bpl" path="res://NPC/NPC.gd" id="9_epnw7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gy3sr"]
 panorama = ExtResource("1_dxppu")
@@ -31,6 +32,10 @@ glow_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.89, 0.9541667, 1, 1)
 adjustment_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ox0n"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0ox0n"]
 
 [node name="Test world" type="Node3D" unique_id=801423077]
 
@@ -98,3 +103,17 @@ shadow_enabled = true
 
 [node name="DestructBox" parent="." unique_id=684216998 instance=ExtResource("8_1h53d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
+
+[node name="NPC" type="CharacterBody3D" parent="." unique_id=102038267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5243347, 0.49999952, 7.527677)
+script = ExtResource("9_epnw7")
+idleText = ["pee pee poo poo dodo dodo"]
+metadata/_custom_type_script = "uid://b2v85m8g73bpl"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPC" unique_id=1220643620]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_0ox0n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NPC" unique_id=1607358683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_0ox0n")
