@@ -306,6 +306,7 @@
 [ext_resource type="Texture2D" uid="uid://d0pkeblr6eg6l" path="res://Player/UI/textBox/render/dialogueBox0118.png" id="303_5br8e"]
 [ext_resource type="Texture2D" uid="uid://bkfk0rnfjxklr" path="res://Player/UI/textBox/render/dialogueBox0119.png" id="304_oeura"]
 [ext_resource type="Texture2D" uid="uid://caknsiv213mvj" path="res://Player/UI/textBox/render/dialogueBox0120.png" id="305_anwbv"]
+[ext_resource type="Script" uid="uid://dpl1qcdcbf5f5" path="res://Player/questLogSpawner.gd" id="307_0qrrv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kne1u"]
 height = 1.8
@@ -1412,3 +1413,13 @@ text = "hello"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="questLogSpawner" type="Control" parent="UI" unique_id=1420840671]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("307_0qrrv")

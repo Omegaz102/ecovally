@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b44i5slkvc5b1"]
+
+[ext_resource type="Script" uid="uid://dafg50r4me24x" path="res://UI/QuestLog/questItem.gd" id="1_rdr7n"]
+
+[node name="questItem" type="Button" unique_id=843642742]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "questTitle"
+script = ExtResource("1_rdr7n")

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c2s46hawdfcpo"]
+
+[ext_resource type="Script" uid="uid://ili1ftntoqs1" path="res://UI/QuestLog/questLog.gd" id="1_hayrc"]
+
+[node name="QuestLog" type="CenterContainer" unique_id=1479309992]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("1_hayrc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1561953764]
+custom_minimum_size = Vector2(1024, 512)
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer" unique_id=1438887141]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/PanelContainer2" unique_id=1817034856]
+layout_mode = 2
+size_flags_horizontal = 3
+layout_direction = 3
+theme_override_constants/scrollbar_h_separation = 4
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer2/ScrollContainer" unique_id=1553303345]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=900299944]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer" unique_id=267650989]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=389002979]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="Title" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/MarginContainer" unique_id=1023077231]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Tittle"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=1282016098]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+
+[node name="Description" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/MarginContainer2" unique_id=1241714846]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description "
+autowrap_mode = 3
+text_overrun_behavior = 3

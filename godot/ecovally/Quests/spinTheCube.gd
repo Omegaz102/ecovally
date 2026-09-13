@@ -1,6 +1,8 @@
 extends Quest
 
 func _ready() -> void:
+	title = "spin the cube"
+	description = "These wierdo just told you to spin a cube"
 	sayAwait(Global.testNPC,
 	"spintCubeIntro",
 	["hey dude",
