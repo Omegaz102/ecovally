@@ -9,3 +9,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_start_pressed() -> void:
 	Global.root.loadScene("res://Test/test_world.tscn")
+
+
+func _on_shittins_pressed() -> void:
+	Global.root.loadScene("res://settings.tscn")
